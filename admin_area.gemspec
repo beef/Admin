@@ -135,10 +135,16 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<thoughtbot-clearance>, [">= 0.6.6"])
+      s.add_runtime_dependency(%q<thoughtbot-sortable_table>, [">= 0"])
+      s.add_runtime_dependency(%q<mislav-will_paginate>, [">= 2.3.8"])
     else
       s.add_dependency(%q<thoughtbot-clearance>, [">= 0.6.6"])
+      s.add_dependency(%q<thoughtbot-sortable_table>, [">= 0"])
+      s.add_dependency(%q<mislav-will_paginate>, [">= 2.3.8"])
     end
   else
     s.add_dependency(%q<thoughtbot-clearance>, [">= 0.6.6"])
+    s.add_dependency(%q<thoughtbot-sortable_table>, [">= 0"])
+    s.add_dependency(%q<mislav-will_paginate>, [">= 2.3.8"])
   end
 end

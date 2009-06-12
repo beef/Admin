@@ -1,8 +1,10 @@
 class Admin::UsersController < Admin::BaseController
+  sortable_attributes :name, :email, :role 
+
   # GET /users
   # GET /users.xml
   def index
-    @users = User.paginate :page => params[:page], :per_page => 20
+    @users = User.paginate :page => params[:page], :per_page => 20, :order => sort_order
 
     respond_to do |format|
       format.html # index.html.erb
@@ -86,17 +88,4 @@ class Admin::UsersController < Admin::BaseController
     end
   end
   
-  def by
-    if ["name", "email", "type"].include?(params[:search_tag]) && ["desc", "asc"].include?(params[:direction])      
-      conditions = [params[:search_tag], params[:direction]].join(' ')
-      @users = User.paginate :page => params[:page], :per_page => 20, :order => conditions
-      
-      respond_to do |format|
-        format.html { render :action => 'index' }
-        format.xml  { render :xml => @users }
-      end
-    else
-      redirect_to :action => "index"
-    end
-  end
 end       
