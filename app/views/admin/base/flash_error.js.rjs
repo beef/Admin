@@ -1,0 +1,8 @@
+page.visual_effect :blind_up, 'flash-error'
+page.delay(1.seconds) do
+  page.replace_html 'flash-error', flash[:error]
+  page.visual_effect :blind_down, 'flash-error'
+end
+page.delay(10.seconds) do
+  page.visual_effect :blind_up, 'flash-error'
+end

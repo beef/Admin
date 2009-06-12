@@ -1,0 +1,33 @@
+<% remote_form_for(settings, :url => update_set_admin_settings_path, :html => {:method => :post, :class => 'setting-form'} ) do |f| %>
+
+<% settings.each do |setting| %>
+
+	<p>
+<% unless setting.empty? %>
+  <%= label_tag "settings_#{setting[0]}", setting[0].to_s.humanize %><br/>
+
+<% 	unless setting[2].blank? %>
+		<span class="setting-description"><%= setting[2] %></span><br/>
+<% 	end %>
+
+<%= case setting[1] 
+		when "text"
+  			text_field_tag "settings[#{setting[0]}]", Settings[setting[0]], {:id => "settings_#{setting[0]}"}
+		when "text_area"
+  			text_area_tag "settings[#{setting[0]}]", Settings[setting[0]], {:id => "settings_#{setting[0]}"}
+		when "checkbox"
+  			check_box_tag "settings[#{setting[0]}]", true, Settings[setting[0]], {:id => "settings_#{setting[0]}"}
+  		else
+  			nil
+   end %>
+	</p>
+
+<% else %>
+	<br />
+<% end %>
+
+<% end %>
+
+	
+  <%= submit_tag "Set", :disable_with => 'Setting...' %>
+<% end -%>

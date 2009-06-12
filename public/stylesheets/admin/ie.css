@@ -1,0 +1,21 @@
+#status {
+	position: relative;
+	top: -7px;
+}
+
+div#main-content, div#sub-content{
+padding: 0 10px 10px 10px;
+}
+
+input{
+	padding: 0;
+}
+
+#password-meter {
+	margin-left:5px;
+	margin-top: -14px;
+}
+
+ul#topnav {
+	height: 1%;
+}

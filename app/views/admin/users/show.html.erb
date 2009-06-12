@@ -1,0 +1,52 @@
+<h1><%= @user.new_record? ? 'New' : 'Editing' %> User</h1>
+
+<%= error_messages_for :user %>
+
+<% form_for([:admin, @user], :html => {:multipart => true} ) do |f| %>
+
+  <p><%= f.label :name %><br/>
+  <%= f.text_field :name  %></p>
+
+  <p><label for="user_email">Email</label><br/>
+  <%= f.text_field 'email'  %></p>
+
+  <p><label for="user_password">Password</label><br/>
+  <%= f.password_field 'password', :id => "password", :onKeyUp => "updateStrength(this.value)"  %><div id="password-meter"><strong>Strength</strong><div id = "psContainer"><div id = "psStrength"></div></div></div></p>
+
+  <p><label for="user_password_confirmation">Confirm Password</label><br/>
+  <%= f.password_field 'password_confirmation'  %></p>
+  
+  <p>
+    <%= f.label :about %><br/>
+    <%= f.text_area :about, :class => 'editor' %>
+  </p>
+  
+  <p>
+    <%= f.label :blog_rss, "Blog Rss Feed URLs (comma seperated)" %><br/>
+    <%= f.text_field :blog_rss %>
+  </p>
+  
+  <p>
+    <%= f.label :flickr_id, "Flickr ID" %><br/>
+    <%= f.text_field :flickr_id %>
+  </p>
+  
+  <p><label for="user_image_uploaded_data">User Image:</label><br/>
+  <%= file_field 'user_image', :uploaded_data %></p>
+
+  <% if current_user.admin? %>
+  <p><%= f.label :req_access_level, "User Type" %><br/>
+  <%= f.select :req_access_level, AccessLevel.find(:all).collect { |a| [ a.title, a.id ] } %>
+  </p>
+  <% end %>
+
+  <p>
+    <%= f.submit "Go Live", :disable_with => 'Publishing...' %> or <%= link_to 'Cancel', admin_users_path %>
+  </p>
+<% end %>
+
+<% content_for :sub_content do %>
+<h2>User Information</h2>
+<%= image_tag @user.user_image.public_filename(:user_image) unless @user.user_image.nil? or !@user.user_image.valid? %></td>
+<% end unless @user.new_record? %>
+
