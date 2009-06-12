@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<!-- START META TAGS -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="content-language" content="en" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<meta name="copyright" content="<%= Time.now.year %>, Beef" />
+<meta name="web-author" content="Beef (www.wearebeef.co.uk)" />
+<meta name="author" content="Beef"/>
+
+<!-- END META TAGS -->
+<title><%= Settings.site_name %> | CMS | <%= page_title %></title>
+
+<%= stylesheet_link_tag 'admin/screen', 'textile-editor',  :media=>'screen,tv,projection' %>
+<%= stylesheet_link_tag 'lightwindow' %>
+<%= stylesheet_link_tag 'admin/print', :media=>'print' %>
+<%= stylesheet_link_tag 'admin/handheld', :media=>'handheld' %>
+<!--[if IE]><link href="/stylesheets/admin/ie.css" media="screen" rel="Stylesheet" type="text/css" /><![endif]-->
+
+<%= javascript_include_tag 'prototype', 'effects', 'dragdrop', 'controls', 'admin/application', 'textile-editor' %>
+
+<%= @content_for_header %>
+
+</head>
+<body id="<%= page_id %>" class="<%= self.action_name %>">
+  <!-- begin screen -->
+  <div id="screen">
+    <!-- begin header -->
+    <div id="header">
+		  <h1><strong><%= Settings.site_name %></strong> Content Management System</h1>
+  		<ul id="status">
+  			<% if signed_in? %><li class="no_bull"><%= current_user.name %> is logged in</li><% end %>
+  			<li><%= link_to 'Logout', session_logout_path %></li>
+  			<%= tab 'Users', :controller => 'users' if current_user.admin? %>
+  			<%= tab 'Settings', admin_settings_path if current_user.admin? %>
+  			<li><%= link_to 'Live Site', '/' %></li>
+  		</ul>
+		</div>
+    <!-- end header -->
+    <!-- begin navigation -->
+    <ul id="topnav">
+      <%= tab 'Dashboard', admin_path %>
+
+    </ul>
+    <!-- end navigation -->
+
+    <%= flash_messages %>
+
+    <div id="content-area">
+      <div id="main-content">
+        <%= yield %>
+      </div>
+      <div id="sub-content">
+        <%= yield :sub_content %>
+      </div>
+    </div>
+
+    <!-- begin footer -->
+    <div id="footer">
+		  <p>&copy; <%= Time.now.year %> Beef &bull; <%= mail_to 'support@wearebeef.co.uk' %></p>
+    </div>
+    <!-- end footer -->
+  </div>
+  <!-- end screen -->
+</body>
+</html>  

@@ -1,0 +1,22 @@
+<h1>Listing <%= plural_name %></h1>
+
+<%%= link_to 'New <%= singular_name %>', new_<%= singular_name %>_path %>
+
+<table>
+  <tr>
+<% for attribute in attributes -%>
+    <th><%%= sortable_table_header :name => "<%= attribute.column.human_name %>",  :sort => "<%= attribute.name %>" %></th>
+<% end -%>
+  </tr>
+
+<%% @<%= plural_name %>.each do |<%= singular_name %>| %>
+  <tr>
+<% for attribute in attributes -%>
+    <td><%%=h <%= singular_name %>.<%= attribute.name %> %></td>
+<% end -%>
+    <td><%%= link_to 'Show', <%= singular_name %> %></td>
+    <td><%%= link_to 'Edit', [:admin, @<%= singular_name %>] %></td>
+    <td><%%= link_to 'Destroy', [:admin, @<%= singular_name %>], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<%% end %>
+</table>
