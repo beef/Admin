@@ -1,5 +1,5 @@
 class ContentSweeper < ActionController::Caching::Sweeper
-  observe Article, Comment, Settings
+  # observe Article, Comment, Settings
 
   def after_save(record)
     case record

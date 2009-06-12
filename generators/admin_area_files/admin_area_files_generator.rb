@@ -4,8 +4,6 @@ class AdminAreaFilesGenerator < Rails::Generator::Base
   
   def manifest
     record do |m|
-
-      m.dependency 'clearance', []
       
       m.directory File.join("public", "images", "admin")
       m.directory File.join("public", "images", "textile-editor")
@@ -78,7 +76,7 @@ class AdminAreaFilesGenerator < Rails::Generator::Base
         m.file file, file
        end
        
-       m.migration_template 'migration.rb', 'db/migrate', :migration_file_name => 'admin_settings_and_user_fields'
+       m.migration_template 'migration.rb', 'db/migrate', :migration_file_name => 'create_settings_and_users'
     end
   end
 end

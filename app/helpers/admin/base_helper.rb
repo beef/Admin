@@ -1,5 +1,20 @@
 module Admin::BaseHelper
   
+  def admin_page_title
+    @page_title ||= controller.controller_name.titleize + (controller.action_name == 'index' ? ' ' : " #{controller.action_name.titleize}" )   
+  end
+  
+  def tab(label, options = {}, roles = nil)
+    return if roles and !current_user.authorised?(roles)
+    content_tag :li, link_to(label, options)
+  end
+  
+  def flash_messages
+    flash.collect do |name, message|
+      content_tag :div, message, :class => "flash #{name}"
+    end.join
+  end
+  
   def article_status(article)
     if article.published_at
       '<span class="status approved">Approved</span>'

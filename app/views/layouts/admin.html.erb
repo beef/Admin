@@ -12,10 +12,9 @@
 <meta name="author" content="Beef"/>
 
 <!-- END META TAGS -->
-<title><%= Settings.site_name %> | CMS | <%= page_title %></title>
+<title><%= Settings.site_name %> | CMS | <%= admin_page_title %></title>
 
 <%= stylesheet_link_tag 'admin/screen', 'textile-editor',  :media=>'screen,tv,projection' %>
-<%= stylesheet_link_tag 'lightwindow' %>
 <%= stylesheet_link_tag 'admin/print', :media=>'print' %>
 <%= stylesheet_link_tag 'admin/handheld', :media=>'handheld' %>
 <!--[if IE]><link href="/stylesheets/admin/ie.css" media="screen" rel="Stylesheet" type="text/css" /><![endif]-->
@@ -25,7 +24,7 @@
 <%= @content_for_header %>
 
 </head>
-<body id="<%= page_id %>" class="<%= self.action_name %>">
+<body id="<%= self.controller_name %>" class="<%= self.action_name %>">
   <!-- begin screen -->
   <div id="screen">
     <!-- begin header -->
@@ -33,7 +32,7 @@
 		  <h1><strong><%= Settings.site_name %></strong> Content Management System</h1>
   		<ul id="status">
   			<% if signed_in? %><li class="no_bull"><%= current_user.name %> is logged in</li><% end %>
-  			<li><%= link_to 'Logout', session_logout_path %></li>
+  			<li><%= link_to 'Logout', logout_path %></li>
   			<%= tab 'Users', :controller => 'users' if current_user.admin? %>
   			<%= tab 'Settings', admin_settings_path if current_user.admin? %>
   			<li><%= link_to 'Live Site', '/' %></li>
