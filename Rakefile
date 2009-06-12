@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "admin_area"
-    gem.summary = %Q{TODO}
+    gem.summary = %Q{Rails engine that provides a standard admin area with user managament}
     gem.email = "steve@wearebeef.co.uk"
     gem.homepage = "http://github.com/stengland/admin_area"
     gem.authors = ["Steve England"]
