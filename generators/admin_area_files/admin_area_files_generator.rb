@@ -5,6 +5,19 @@ class AdminAreaFilesGenerator < Rails::Generator::Base
   def manifest
     record do |m|
       
+      m.dependency 'clearance'
+      
+      m.insert_into 'app/models/user.rb', <<-RUBY
+        include Admin::Roles
+        attr_accessible :name"
+
+        validates_presence_of :name
+
+        # List of allowed roles
+        ROLES = [:team_member, :admin]
+      RUBY
+      
+      
       m.directory File.join("public", "images", "admin")
       m.directory File.join("public", "images", "textile-editor")
       m.directory File.join("public", "javascripts", "admin")

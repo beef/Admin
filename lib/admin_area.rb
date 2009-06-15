@@ -38,4 +38,34 @@ module AdminArea
     end
 
   end
+  
+  module Roles
+
+    def self.included(base)
+      base.send(:include, InstanceMethods)
+
+      base.class_eval do
+        ROLES.each do |r|
+          self.class_eval <<-RUBY
+            def #{r}?
+              authorised?(:#{r})
+            end
+          RUBY
+        end
+      end
+    end
+
+    module InstanceMethods
+      def authorised?(*auth_roles)
+        return false if role.blank?
+        # Check the roles are real
+        non_roles = auth_roles - User::ROLES
+        unless non_roles.empty?
+          raise ArgumentError, "No such role #{non_roles.join(', ')}"
+        end
+        auth_roles.include?(role.to_sym)
+      end
+    end
+
+  end
 end
