@@ -6,12 +6,6 @@
                 ['default_keywords', 'text_area']] %>
   </fieldset>
   
-  <fieldset id="general"><legend>HTML Filter</legend>
-    <p>Enter the tags and tag attributes allowed in comments and other user generated content.<p>
-    <%= setting_form [['allowed_html_tags_for_UGC','text'],
-                ['allowed_html_attributes_for_UGC','text']] %>
-  </fieldset>
-  
   <fieldset id="contactdetails"><legend>Contact Details</legend>
     <%= setting_form([['site_name','text'],
                 ['address_line_1','text'],
@@ -37,9 +31,6 @@
                 ['flickr_api_secret','text']] %>
   </fieldset>
   
-  <!-- <fieldset id="campaign"><legend>Campaign Monitor Settings</legend>
-      <%= setting_form 'campaign_monitor_client_id' %>
-    </fieldset> -->
   
   <fieldset id="defensio"><legend>Defensio Settings</legend>
     <%= setting_form 'defensio_api_key' %>
@@ -48,12 +39,7 @@
   <fieldset id="defensio"><legend>Google Analytics Settings</legend>
     <%= setting_form 'google_analytics_web_property_id' %>
   </fieldset>
-  
-  <fieldset id="cloudfile"><legend>Cloudfile Settings</legend>
-    <%= setting_form [['cloudfile_api_key', 'text'],
-                      ['cloudfile_username', 'text']] %>
-  </fieldset>
-  
+
 
 <% content_for :sub_content do %>
 <h2>Helpful Tips</h2>
@@ -64,22 +50,3 @@
 <h3>Default Email</h3>
 <p>This is the email used by the contact and showreel form. All enquiries to the site will be delivered to this email address.</p>
 <% end %>
-
-
-<script type="text/javascript">
-var link_list='';
-$$('fieldset').each(function (item){
-  var legend = item.down('legend').innerHTML;
-  var legend_clean = '';
-  
-  if(item.id.length==0){
-    legend_clean = legend.replace(/[^a-z0-9\-_]+/ig, '');
-  }else{
-    legend_clean = item.id.replace(/[^a-z0-9\-_]+/ig, '');
-  }
-
-  link_list += '<li><a href="#'+legend_clean.toLowerCase()+'">'+legend+'</a></li>';
-});
-
-$('main-content').insert({top:'<ul id="settings-menu">'+link_list+'</ul><br clear="all"/>'});
-</script>

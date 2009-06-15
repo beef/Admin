@@ -24,6 +24,7 @@ RUBY
       m.directory File.join("public", "javascripts", "admin")
       m.directory File.join("public", "stylesheets", "admin")
       m.directory File.join("lib", "tasks")
+      m.directory File.join("app", "views", "settings")
       
       ["public/images/admin/accept_button.gif",
       "public/images/admin/add.png",
@@ -88,8 +89,10 @@ RUBY
       "public/stylesheets/admin/screen.css",
       "public/stylesheets/admin/theme-1.0.css",
       "app/models/content_sweeper.rb",
-      "lib/tasks/admin_area.rake"].each do |file|
-        m.file file, file
+      "lib/tasks/admin_area.rake",
+      "config/initializers/settings.rb",
+      "app/views/admin/settings/show.html.erb"].each do |file|
+         m.file file, file
        end
        
        m.migration_template 'migration.rb', 'db/migrate', :migration_file_name => 'create_settings_and_users'

@@ -15,6 +15,12 @@ module Admin::BaseHelper
     end.join
   end
   
+  # RJS helper for flash text 
+  def flash_messages_js(page, element = 'content-area')
+    page.insert_html :before, element, flash_messages
+    page << 'init_flash_messages();'
+  end
+  
   def article_status(article)
     if article.published_at
       '<span class="status approved">Approved</span>'

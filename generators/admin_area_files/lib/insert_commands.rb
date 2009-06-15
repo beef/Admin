@@ -11,27 +11,6 @@ Rails::Generator::Commands::Create.class_eval do
     puts read_me
     gets
   end
-
-  def route_resources_to_namespace(namespace, resource_list)
-    sentinel = 'ActionController::Routing::Routes.draw do |map|'
-    
-    namespace_map = "map.namespace(:#{namespace}) do |#{namespace}|"
-    logger.route namespace_map
-    unless options[:pretend] || file_contains?('config/routes.rb', namespace_map)
-      gsub_file 'config/routes.rb', /(#{Regexp.escape(sentinel)})/mi do |match|
-        "#{match}\n  #{namespace_map}\n  end"
-      end
-    end
-    
-    namespace_route = "#{namespace}.resources :#{resource_list}"
-
-    logger.route namespace_route
-    unless options[:pretend] || file_contains?('config/routes.rb', namespace_route)
-      gsub_file 'config/routes.rb', /(#{Regexp.escape(namespace_map)})/mi do |match|
-        "#{match}\n    #{namespace_route}"
-      end
-    end
-  end
   
   def insert_into(file, line)
     logger.insert "#{line} into #{file}"
@@ -49,10 +28,6 @@ Rails::Generator::Commands::Destroy.class_eval do
   def press_any_key
     # do ni
   end
-  
-  def route_resources_to_namespace(namespace, resource_list)
-    # Do nowt for now
-  end
 
   def insert_into(file, line)
     logger.remove "#{line} from #{file}"
@@ -60,14 +35,13 @@ Rails::Generator::Commands::Destroy.class_eval do
       gsub_file file, "\n  #{line}", ''
     end
   end
+
 end
 
 Rails::Generator::Commands::List.class_eval do
-  def route_resources_to_namespace(resources_list)
-    logger.route "map.resource #{resource_list}"
-  end
   
   def insert_into(file, line)
     logger.insert "#{line} into #{file}"
   end
+
 end
