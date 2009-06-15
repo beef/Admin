@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   def authorised?(*auth_roles)
     return false if role.blank?
     # Check the roles are real
-    non_roles = auth_roles - ROLES
+    non_roles = auth_roles - User::ROLES
     unless non_roles.empty?
       raise ArgumentError, "No such role #{non_roles.join(', ')}"
     end

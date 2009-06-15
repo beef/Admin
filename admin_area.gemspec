@@ -115,6 +115,7 @@ Gem::Specification.new do |s|
      "generators/content_node_scaffold/templates/view_index.html.erb",
      "generators/content_node_scaffold/templates/view_show.html.erb",
      "lib/admin_area.rb",
+     "rails/init.rb",
      "tasks/admin_area.rake",
      "test/admin_area_test.rb",
      "test/test_helper.rb"

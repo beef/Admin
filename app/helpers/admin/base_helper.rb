@@ -34,7 +34,6 @@ module Admin::BaseHelper
     render :partial => 'admin/shared/flickr_latest.html.erb', :locals => { :flickr_images => flickr_result }
   end
   
-  
   def flickr_select
     return if Settings.flickr_api_key.blank? or Settings.flickr_user_id.blank?
     Flickr::API.connect Settings.flickr_api_key, Settings.flickr_api_secret, Settings.flickr_auth_token
@@ -44,24 +43,6 @@ module Admin::BaseHelper
     render :partial => 'admin/shared/flickr.html.erb', :locals => { :flickr_images => flickr_result }
   end
   
-  def link_to_sort(text, options = nil, html_options = nil)
-    orders = ['ASC','DESC']
-    
-    if options.nil? || options[:sort].nil?
-      options = (options || {}).merge({:sort => text.downcase.gsub(' ','_')}) 
-    end
-    
-    #switch the order if we are sorting by this column
-    if options[:sort] == params[:sort]
-      order = orders[ (orders.index(params[:order]).to_i + 1) % 2 ]
-    else
-      #default
-      order = orders.first
-    end
-    
-    link_to text, {:page => 1}.merge(options).merge(params.reject{|key, value| key == 'sort' || key == 'order'} || {}).merge({:sort => options[:sort], :order => order}), html_options
-  end
-
   def preview_link(object)
     url = url_for([:preview, :admin, object ]) 
     "<a class='button' onclick=\"new Ajax.Updater('page_preview', '#{url}', {asynchronous:true, evalScripts:true, method:'get', parameters:'authenticity_token=' + encodeURIComponent('#{form_authenticity_token}') + $('content-node-form').serialize() + '&assets=' + getAssetIDs('asset-list')}); return false;\">Preview</a>"

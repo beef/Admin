@@ -1,5 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.logout 'logout', :controller => 'clearance/sessions', :action => 'destroy'
   map.admin 'admin', :controller => 'admin/base'
   map.namespace(:admin) do |admin|
     admin.flickr 'flickr', :controller => 'base', :action => 'flickr'

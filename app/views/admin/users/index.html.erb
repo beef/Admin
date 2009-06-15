@@ -9,9 +9,9 @@
 <table>
   <thead>
     <tr>
-      <th><%= link_to 'Name', admin_order_users_by_path(:name, :desc) %></th>
-      <th><%= link_to 'Email', admin_order_users_by_path(:email, :desc) %></th>
-      <th>Type</th>
+      <%= sortable_table_header :name => "Name",  :sort => "title" %>
+      <%= sortable_table_header :name => "Email",  :sort => "email" %>
+      <%= sortable_table_header :name => "Role",  :sort => "role" %>
       <th colspan="2">Actions</th>
     </tr>
   </thead>
@@ -20,7 +20,7 @@
     <tr>
       <td><%=h user.name %></td>
       <td><%=h user.email %></td>
-      <td><%=h user.class %></td>
+      <td><%=h user.role %></td>
       <td><%= link_to 'Edit', [:admin, user], :class => 'edit' %></td>
       <td><%= link_to 'Destroy', [:admin, user], :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %></td>
     </tr>
@@ -28,9 +28,9 @@
   </tbody>
   <tfoot>
     <tr>
-      <th><%= link_to 'Name', admin_order_users_by_path(:name, :desc) %></th>
-      <th><%= link_to 'Email', admin_order_users_by_path(:email, :desc) %></th>
-      <th>Type</th>
+      <%= sortable_table_header :name => "Name",  :sort => "title" %>
+      <%= sortable_table_header :name => "Email",  :sort => "email" %>
+      <%= sortable_table_header :name => "Role",  :sort => "role" %>
       <th colspan="2">Actions</th>
     </tr>
   </tfoot>

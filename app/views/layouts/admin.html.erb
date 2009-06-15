@@ -32,8 +32,8 @@
 		  <h1><strong><%= Settings.site_name %></strong> Content Management System</h1>
   		<ul id="status">
   			<% if signed_in? %><li class="no_bull"><%= current_user.name %> is logged in</li><% end %>
-  			<li><%= link_to 'Logout', logout_path %></li>
-  			<%= tab 'Users', :controller => 'users' if current_user.admin? %>
+  			<li><%= link_to 'Logout', session_path, :method => :delete %></li>
+  			<%= tab 'Users', admin_users_path, :admin %>
   			<%= tab 'Settings', admin_settings_path if current_user.admin? %>
   			<li><%= link_to 'Live Site', '/' %></li>
   		</ul>

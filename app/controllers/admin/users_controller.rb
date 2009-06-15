@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::BaseController
+  authorise :roles => :admin
   sortable_attributes :name, :email, :role 
 
   # GET /users
@@ -28,15 +29,8 @@ class Admin::UsersController < Admin::BaseController
   # POST /users.xml
   def create    
     @user = User.new(params[:user])
-    
-    # Check that the current user has a sufficient access level to change new users access level. This is a secondary check to
-    # protect against form tampering
-    current_user.admin? ? @user.access_level_id = params[:user][:req_access_level] : @user.access_level_id = 3
-    
-    @user_image = @user.build_user_image(params[:user_image])
-    @user_image.category = "User Images"
-    @user_image.description = "#{@user.name}'s picture"
-
+    # Because mass assignment is protected
+    @user.role = params[:user][:role]
     respond_to do |format|
       if @user.save
         @user.confirm_email!
@@ -54,14 +48,8 @@ class Admin::UsersController < Admin::BaseController
   # PUT /users/1.xml
   def update  
     @user = User.find(params[:id])
-    unless @user.user_image.nil?
-      @user.user_image.update_attributes(params[:user_image])
-    else
-      @user_image = @user.build_user_image(params[:user_image])
-      @user_image.category = "User Images"
-      @user_image.description = "#{@user.name}'s picture"
-    end
-
+    # Because mass assignment is protected
+    @user.role = params[:user][:role]
     respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = 'User was successfully updated.'
@@ -77,11 +65,6 @@ class Admin::UsersController < Admin::BaseController
   # DELETE /users/1
   # DELETE /users/1.xml
   def destroy
-    if current_user.admin?
-      @user = User.find(params[:id])
-      @user.destroy
-    end
-
     respond_to do |format|
       format.html { redirect_to(admin_users_url) }
       format.xml  { head :ok }

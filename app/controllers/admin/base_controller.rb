@@ -1,5 +1,5 @@
 class Admin::BaseController < ApplicationController
-  include Clearance::Authentication
+  include AdminArea::Authorisation
   include SortableTable::App::Controllers::ApplicationController
   layout 'admin'
   before_filter :authenticate
