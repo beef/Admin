@@ -37,6 +37,7 @@ Gem::Specification.new do |s|
      "generators/admin_area_files/admin_area_files_generator.rb",
      "generators/admin_area_files/lib/insert_commands.rb",
      "generators/admin_area_files/templates/app/models/content_sweeper.rb",
+     "generators/admin_area_files/templates/lib/tasks/admin_area.rake",
      "generators/admin_area_files/templates/migration.rb",
      "generators/admin_area_files/templates/public/images/admin/accept_button.gif",
      "generators/admin_area_files/templates/public/images/admin/add.png",
@@ -115,7 +116,6 @@ Gem::Specification.new do |s|
      "generators/content_node_scaffold/templates/view_show.html.erb",
      "lib/admin_area.rb",
      "rails/init.rb",
-     "tasks/admin_area.rake",
      "test/admin_area_test.rb",
      "test/test_helper.rb"
   ]

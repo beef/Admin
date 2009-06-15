@@ -10,13 +10,12 @@ class AdminAreaFilesGenerator < Rails::Generator::Base
       m.press_any_key
       
       m.insert_into 'app/models/user.rb', <<-RUBY
-include Admin::Roles
-  attr_accessible :name
-
-  validates_presence_of :name
-
-  # List of allowed roles. Removing admin role will cause errors
+# List of allowed roles. Removing admin role will cause errors
   ROLES = [:team_member, :admin]
+  include AdminArea::Roles
+  
+  attr_accessible :name
+  validates_presence_of :name
 RUBY
       
       
@@ -24,6 +23,7 @@ RUBY
       m.directory File.join("public", "images", "textile-editor")
       m.directory File.join("public", "javascripts", "admin")
       m.directory File.join("public", "stylesheets", "admin")
+      m.directory File.join("lib", "tasks")
       
       ["public/images/admin/accept_button.gif",
       "public/images/admin/add.png",
@@ -87,7 +87,8 @@ RUBY
       "public/stylesheets/admin/print.css",
       "public/stylesheets/admin/screen.css",
       "public/stylesheets/admin/theme-1.0.css",
-      "app/models/content_sweeper.rb"].each do |file|
+      "app/models/content_sweeper.rb",
+      "lib/tasks/admin_area.rake"].each do |file|
         m.file file, file
        end
        
