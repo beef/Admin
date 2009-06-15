@@ -29,3 +29,33 @@ Rails::Generator::Commands::Create.class_eval do
   end
   
 end
+
+Rails::Generator::Commands::Destroy.class_eval do
+  
+  def route_resources_to_namespace(namespace, resource_list)
+    # do ni
+  end
+
+  def insert_into(file, line)
+    logger.remove "#{line} from #{file}"
+    unless options[:pretend]
+      gsub_file file, "\n  #{line}", ''
+    end
+  end
+
+end
+
+Rails::Generator::Commands::List.class_eval do
+
+  def route_resources_to_namespace(namespace, resource_list)
+    namespace_map = "map.namespace(:#{namespace}) do |#{namespace}|"
+    logger.route namespace_map
+    namespace_route = "#{namespace}.resources :#{resource_list}"
+    logger.route namespace_route
+  end
+    
+  def insert_into(file, line)
+    logger.insert "#{line} into #{file}"
+  end
+
+end

@@ -1,12 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + "/lib/insert_commands.rb")
 
-class ContentNodeScaffoldGenerator < ScaffoldGenerator
-  
-  def initialize(runtime_args, runtime_options = {})
-    super
-
-    @args = ['title:string', 'permalink:string', 'published_at:datetime', 'published_to:datetime'] + @args
-  end
+class AdminScaffoldGenerator < ScaffoldGenerator
   
   def manifest
     record do |m|
@@ -28,18 +22,16 @@ class ContentNodeScaffoldGenerator < ScaffoldGenerator
 
       for action in ['index', 'show']
         m.template(
-          "view_#{action}.html.erb",
-          File.join('app/views', controller_class_path, controller_file_name, "#{action}.html.erb")
-        )
-        m.template(
           "admin_#{action}.html.erb",
           File.join('app/views/admin', controller_class_path, controller_file_name, "#{action}.html.erb")
         )
       end
+      
+      m.template(
+        "view_index.html.erb",
+        File.join('app/views/admin', controller_class_path, controller_file_name, "view.html.erb")
+      )
 
-      # Layout and stylesheet.
-      m.template('layout.html.erb', File.join('app/views/layouts', controller_class_path, "application.html.erb"))
-      m.template('style.css', 'public/stylesheets/scaffold.css')
 
       m.template(
         'view_controller.rb', File.join('app/controllers', controller_class_path, "#{controller_file_name}_controller.rb")
