@@ -6,6 +6,11 @@ Rails::Generator::Commands::Base.class_eval do
 end
 
 Rails::Generator::Commands::Create.class_eval do
+  
+  def press_any_key(read_me="Where's the any key?")
+    puts read_me
+    gets
+  end
 
   def route_resources_to_namespace(namespace, resource_list)
     sentinel = 'ActionController::Routing::Routes.draw do |map|'
@@ -28,4 +33,41 @@ Rails::Generator::Commands::Create.class_eval do
     end
   end
   
+  def insert_into(file, line)
+    logger.insert "#{line} into #{file}"
+    unless options[:pretend] || file_contains?(file, line)
+      gsub_file file, /^(class|module) .+$/ do |match|
+        "#{match}\n  #{line}"
+      end
+    end
+  end
+  
+end
+
+Rails::Generator::Commands::Destroy.class_eval do
+  
+  def press_any_key
+    # do ni
+  end
+  
+  def route_resources_to_namespace(namespace, resource_list)
+    # Do nowt for now
+  end
+
+  def insert_into(file, line)
+    logger.remove "#{line} from #{file}"
+    unless options[:pretend]
+      gsub_file file, "\n  #{line}", ''
+    end
+  end
+end
+
+Rails::Generator::Commands::List.class_eval do
+  def route_resources_to_namespace(resources_list)
+    logger.route "map.resource #{resource_list}"
+  end
+  
+  def insert_into(file, line)
+    logger.insert "#{line} into #{file}"
+  end
 end

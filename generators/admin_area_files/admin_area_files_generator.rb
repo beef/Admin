@@ -5,17 +5,19 @@ class AdminAreaFilesGenerator < Rails::Generator::Base
   def manifest
     record do |m|
       
-      m.dependency 'clearance'
+      m.dependency 'clearance', []
+      
+      m.press_any_key
       
       m.insert_into 'app/models/user.rb', <<-RUBY
-        include Admin::Roles
-        attr_accessible :name"
+include Admin::Roles
+  attr_accessible :name
 
-        validates_presence_of :name
+  validates_presence_of :name
 
-        # List of allowed roles
-        ROLES = [:team_member, :admin]
-      RUBY
+  # List of allowed roles. Removing admin role will cause errors
+  ROLES = [:team_member, :admin]
+RUBY
       
       
       m.directory File.join("public", "images", "admin")
@@ -90,6 +92,7 @@ class AdminAreaFilesGenerator < Rails::Generator::Base
        end
        
        m.migration_template 'migration.rb', 'db/migrate', :migration_file_name => 'create_settings_and_users'
+       
     end
   end
 end

@@ -45,7 +45,7 @@ module AdminArea
       base.send(:include, InstanceMethods)
 
       base.class_eval do
-        ROLES.each do |r|
+        User::ROLES.each do |r|
           self.class_eval <<-RUBY
             def #{r}?
               authorised?(:#{r})
