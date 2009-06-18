@@ -1,7 +1,7 @@
 module Admin::BaseHelper
   
   def admin_page_title
-    @page_title ||= controller.controller_name.titleize + (controller.action_name == 'index' ? ' ' : " #{controller.action_name.titleize}" )   
+    @page_title ||= controller.controller_name.titleize + (controller.action_name == 'index' ? ' ' : " | #{controller.action_name.titleize}" )   
   end
   
   def tab(label, options = {}, roles = nil)
@@ -19,16 +19,6 @@ module Admin::BaseHelper
   def flash_messages_js(page, element = 'content-area')
     page.insert_html :before, element, flash_messages
     page << 'init_flash_messages();'
-  end
-  
-  def article_status(article)
-    if article.published_at
-      '<span class="status approved">Approved</span>'
-    elsif article.published_at.nil?
-      '<span class="status draft">Draft</span>'
-    else
-      '<span class="status hidden">Hidden</span>'
-    end
   end
   
   def lastest_flickr
@@ -52,11 +42,6 @@ module Admin::BaseHelper
   def preview_link(object)
     url = url_for([:preview, :admin, object ]) 
     "<a class='button' onclick=\"new Ajax.Updater('page_preview', '#{url}', {asynchronous:true, evalScripts:true, method:'get', parameters:'authenticity_token=' + encodeURIComponent('#{form_authenticity_token}') + $('content-node-form').serialize() + '&assets=' + getAssetIDs('asset-list')}); return false;\">Preview</a>"
-  end
-  
-  def link_to_csv(text = 'Download CSV')
-    params.delete(:page)
-    link_to text, params.merge(:format => :csv)
   end
 
 end

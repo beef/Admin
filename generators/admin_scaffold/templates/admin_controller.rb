@@ -1,5 +1,5 @@
 class Admin::<%= controller_class_name %>Controller < Admin::BaseController
-  sortable_attributes :<%= attributes.collect{|a| a.name}.join(' ,:') %> 
+  sortable_attributes :<%= attributes.collect{|a| a.name}.join(', :') %> 
 
   # GET /<%= table_name %>
   # GET /<%= table_name %>.xml
