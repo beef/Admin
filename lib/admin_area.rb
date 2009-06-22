@@ -7,9 +7,9 @@ module AdminArea
 
       controller.class_eval do
         helper_method :authorised?
-        # helper_method :signed_in?
+        helper_method :not_authorised?
         
-        hide_action :authorised?, :authorise
+        hide_action :authorised?, :authorise, :not_authorised?
       end
     end
     
@@ -29,6 +29,15 @@ module AdminArea
       
       def authorised?(*roles, &block)
         return unless current_user.authorised?(*roles)
+        if block_given?
+          yield
+        else
+          return true
+        end 
+      end
+      
+      def not_authorised?(*roles, &block)
+        return if current_user.authorised?(*roles)
         if block_given?
           yield
         else

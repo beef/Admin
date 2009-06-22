@@ -24,7 +24,7 @@ RUBY
       m.directory File.join("public", "javascripts", "admin")
       m.directory File.join("public", "stylesheets", "admin")
       m.directory File.join("lib", "tasks")
-      m.directory File.join("app", "views", "settings")
+      m.directory File.join("app", "views", "admin", "settings")
       
       ["public/images/admin/accept_button.gif",
       "public/images/admin/add.png",
@@ -83,14 +83,18 @@ RUBY
       "public/images/textile-editor/strikethrough.png",
       "public/images/textile-editor/underline.png",
       "public/javascripts/admin/application.js",
+      "public/javascripts/textile-editor-config.js",
+      "public/javascripts/textile-editor.js",
       "public/stylesheets/admin/handheld.css",
       "public/stylesheets/admin/ie.css",
       "public/stylesheets/admin/print.css",
       "public/stylesheets/admin/screen.css",
       "public/stylesheets/admin/theme-1.0.css",
+      "public/stylesheets/textile-editor.css",
       "app/models/content_sweeper.rb",
       "lib/tasks/admin_area.rake",
       "config/initializers/settings.rb",
+      "config/initializers/admin_area.rb",
       "app/views/admin/settings/show.html.erb"].each do |file|
          m.file file, file
        end

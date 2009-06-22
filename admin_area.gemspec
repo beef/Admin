@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{admin_area}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Steve England"]
-  s.date = %q{2009-06-15}
+  s.date = %q{2009-06-18}
   s.email = %q{steve@wearebeef.co.uk}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -39,6 +39,7 @@ Gem::Specification.new do |s|
      "generators/admin_area_files/lib/insert_commands.rb",
      "generators/admin_area_files/templates/app/models/content_sweeper.rb",
      "generators/admin_area_files/templates/app/views/admin/settings/show.html.erb",
+     "generators/admin_area_files/templates/config/initializers/admin_area.rb",
      "generators/admin_area_files/templates/config/initializers/settings.rb",
      "generators/admin_area_files/templates/lib/tasks/admin_area.rake",
      "generators/admin_area_files/templates/migration.rb",
@@ -99,11 +100,14 @@ Gem::Specification.new do |s|
      "generators/admin_area_files/templates/public/images/textile-editor/strikethrough.png",
      "generators/admin_area_files/templates/public/images/textile-editor/underline.png",
      "generators/admin_area_files/templates/public/javascripts/admin/application.js",
+     "generators/admin_area_files/templates/public/javascripts/textile-editor-config.js",
+     "generators/admin_area_files/templates/public/javascripts/textile-editor.js",
      "generators/admin_area_files/templates/public/stylesheets/admin/handheld.css",
      "generators/admin_area_files/templates/public/stylesheets/admin/ie.css",
      "generators/admin_area_files/templates/public/stylesheets/admin/print.css",
      "generators/admin_area_files/templates/public/stylesheets/admin/screen.css",
      "generators/admin_area_files/templates/public/stylesheets/admin/theme-1.0.css",
+     "generators/admin_area_files/templates/public/stylesheets/textile-editor.css",
      "generators/admin_scaffold/USAGE",
      "generators/admin_scaffold/admin_scaffold_generator.rb",
      "generators/admin_scaffold/lib/insert_commands.rb",
