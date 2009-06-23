@@ -12,7 +12,7 @@ class AdminAreaFilesGenerator < Rails::Generator::Base
       m.insert_into 'app/models/user.rb', <<-RUBY
 # List of allowed roles. Removing admin role will cause errors
   ROLES = [:team_member, :admin]
-  include AdminArea::Roles
+  include Beef::AdminArea::Roles
   
   attr_accessible :name
   validates_presence_of :name
@@ -58,6 +58,16 @@ RUBY
       "public/images/admin/pictures.png",
       "public/images/admin/unapproved.png",
       "public/images/admin/up_icon.gif",
+      "public/images/lightwindow/Thumbs.db",
+      "public/images/lightwindow/ajax-loading.gif",
+      "public/images/lightwindow/arrow-down.gif",
+      "public/images/lightwindow/arrow-up.gif",
+      "public/images/lightwindow/black-70.png",
+      "public/images/lightwindow/black.png",
+      "public/images/lightwindow/nextlabel.gif",
+      "public/images/lightwindow/pattern_148-70.png",
+      "public/images/lightwindow/pattern_148.gif",
+      "public/images/lightwindow/prevlabel.gif",
       "public/images/textile-editor/background.png",
       "public/images/textile-editor/blockquote.png",
       "public/images/textile-editor/bold.png",
@@ -83,6 +93,7 @@ RUBY
       "public/images/textile-editor/strikethrough.png",
       "public/images/textile-editor/underline.png",
       "public/javascripts/admin/application.js",
+      "public/javascripts/lightwindow.js",
       "public/javascripts/textile-editor-config.js",
       "public/javascripts/textile-editor.js",
       "public/stylesheets/admin/handheld.css",
@@ -90,6 +101,7 @@ RUBY
       "public/stylesheets/admin/print.css",
       "public/stylesheets/admin/screen.css",
       "public/stylesheets/admin/theme-1.0.css",
+      "public/stylesheets/lightwindow.css",
       "public/stylesheets/textile-editor.css",
       "app/models/content_sweeper.rb",
       "lib/tasks/admin_area.rake",

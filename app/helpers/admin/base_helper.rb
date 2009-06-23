@@ -1,12 +1,23 @@
 module Admin::BaseHelper
   include SortableTable::App::Helpers::ApplicationHelper
   
+  def admin_menu_items
+    tabs = Beef::AdminArea::ADMIN_MENU.map do | menu_item |
+      if menu_item.is_a? Hash
+        tab(menu_item[:title] || menu_item[:controller].to_s.titleize, send("admin_#{menu_item[:controller]}_path"), menu_item[:roles])
+      else
+        tab(menu_item.to_s.titleize, send("admin_#{menu_item}_path"))
+      end
+    end
+    tabs.join
+  end
+  
   def admin_page_title
     @page_title ||= controller.controller_name.titleize + (controller.action_name == 'index' ? ' ' : " | #{controller.action_name.titleize}" )   
   end
   
   def tab(label, options = {}, roles = nil)
-    return if roles and !current_user.authorised?(roles)
+    return if roles and !current_user.authorised?(*roles)
     content_tag :li, link_to(label, options)
   end
   
@@ -42,7 +53,7 @@ module Admin::BaseHelper
   
   def preview_link(object)
     url = url_for([:preview, :admin, object ]) 
-    "<a class='button' onclick=\"new Ajax.Updater('page_preview', '#{url}', {asynchronous:true, evalScripts:true, method:'get', parameters:'authenticity_token=' + encodeURIComponent('#{form_authenticity_token}') + $('content-node-form').serialize() + '&assets=' + getAssetIDs('asset-list')}); return false;\">Preview</a>"
+    "<a class='button' onclick=\"new Ajax.Updater('page_preview', '#{url}', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('#{form_authenticity_token}') + this.up('form').serialize() + '&assets=' + getAssetIDs('asset-list')}); return false;\">Preview</a>"
   end
 
 end

@@ -163,3 +163,23 @@ init_flash_messages = function() {
   });
 };
 document.observe("dom:loaded", init_flash_messages);
+
+function getAssetIDs() 
+{
+  if ($('asset-list') != undefined)
+  {
+    var assets = new Array();
+    var count = 0;    
+    
+    $$('#asset-list li').each(function(li) 
+    {
+      asset_id = li.id.split('-').last();
+      assets[count] = asset_id;
+      count++;
+    });
+    
+    return assets;
+  }
+  
+  return [];
+}

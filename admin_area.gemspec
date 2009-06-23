@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Steve England"]
-  s.date = %q{2009-06-18}
+  s.date = %q{2009-06-23}
   s.email = %q{steve@wearebeef.co.uk}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -75,6 +75,16 @@ Gem::Specification.new do |s|
      "generators/admin_area_files/templates/public/images/admin/pictures.png",
      "generators/admin_area_files/templates/public/images/admin/unapproved.png",
      "generators/admin_area_files/templates/public/images/admin/up_icon.gif",
+     "generators/admin_area_files/templates/public/images/lightwindow/Thumbs.db",
+     "generators/admin_area_files/templates/public/images/lightwindow/ajax-loading.gif",
+     "generators/admin_area_files/templates/public/images/lightwindow/arrow-down.gif",
+     "generators/admin_area_files/templates/public/images/lightwindow/arrow-up.gif",
+     "generators/admin_area_files/templates/public/images/lightwindow/black-70.png",
+     "generators/admin_area_files/templates/public/images/lightwindow/black.png",
+     "generators/admin_area_files/templates/public/images/lightwindow/nextlabel.gif",
+     "generators/admin_area_files/templates/public/images/lightwindow/pattern_148-70.png",
+     "generators/admin_area_files/templates/public/images/lightwindow/pattern_148.gif",
+     "generators/admin_area_files/templates/public/images/lightwindow/prevlabel.gif",
      "generators/admin_area_files/templates/public/images/textile-editor/background.png",
      "generators/admin_area_files/templates/public/images/textile-editor/blockquote.png",
      "generators/admin_area_files/templates/public/images/textile-editor/bold.png",
@@ -100,6 +110,7 @@ Gem::Specification.new do |s|
      "generators/admin_area_files/templates/public/images/textile-editor/strikethrough.png",
      "generators/admin_area_files/templates/public/images/textile-editor/underline.png",
      "generators/admin_area_files/templates/public/javascripts/admin/application.js",
+     "generators/admin_area_files/templates/public/javascripts/lightwindow.js",
      "generators/admin_area_files/templates/public/javascripts/textile-editor-config.js",
      "generators/admin_area_files/templates/public/javascripts/textile-editor.js",
      "generators/admin_area_files/templates/public/stylesheets/admin/handheld.css",
@@ -107,6 +118,7 @@ Gem::Specification.new do |s|
      "generators/admin_area_files/templates/public/stylesheets/admin/print.css",
      "generators/admin_area_files/templates/public/stylesheets/admin/screen.css",
      "generators/admin_area_files/templates/public/stylesheets/admin/theme-1.0.css",
+     "generators/admin_area_files/templates/public/stylesheets/lightwindow.css",
      "generators/admin_area_files/templates/public/stylesheets/textile-editor.css",
      "generators/admin_scaffold/USAGE",
      "generators/admin_scaffold/admin_scaffold_generator.rb",
