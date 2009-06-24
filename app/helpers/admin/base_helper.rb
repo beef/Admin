@@ -52,8 +52,8 @@ module Admin::BaseHelper
   end
   
   def preview_link(object)
-    url = url_for([:preview, :admin, object ]) 
-    "<a class='button' onclick=\"new Ajax.Updater('page_preview', '#{url}', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('#{form_authenticity_token}') + this.up('form').serialize() + '&assets=' + getAssetIDs('asset-list')}); return false;\">Preview</a>"
+    url = url_for([:preview, :admin, object ])
+    link_to_function 'Preview', "new Ajax.Updater('page_preview', '#{url}', {asynchronous:true, evalScripts:true, parameters: this.up('form').serialize() + '&assets=' + getAssetIDs('asset-list')})", :class => 'button' 
   end
 
 end

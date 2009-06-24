@@ -5,10 +5,6 @@ class AdminAreaFilesGenerator < Rails::Generator::Base
   def manifest
     record do |m|
       
-      m.dependency 'clearance', []
-      
-      m.press_any_key
-      
       m.insert_into 'app/models/user.rb', <<-RUBY
 # List of allowed roles. Removing admin role will cause errors
   ROLES = [:team_member, :admin]
@@ -21,6 +17,7 @@ RUBY
       
       m.directory File.join("public", "images", "admin")
       m.directory File.join("public", "images", "textile-editor")
+      m.directory File.join("public", "images", "lightwindow")
       m.directory File.join("public", "javascripts", "admin")
       m.directory File.join("public", "stylesheets", "admin")
       m.directory File.join("lib", "tasks")
@@ -58,7 +55,6 @@ RUBY
       "public/images/admin/pictures.png",
       "public/images/admin/unapproved.png",
       "public/images/admin/up_icon.gif",
-      "public/images/lightwindow/Thumbs.db",
       "public/images/lightwindow/ajax-loading.gif",
       "public/images/lightwindow/arrow-down.gif",
       "public/images/lightwindow/arrow-up.gif",

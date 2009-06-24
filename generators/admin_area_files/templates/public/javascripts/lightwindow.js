@@ -153,8 +153,8 @@ lightwindow.prototype = {
 			EOLASFix : 'swf,wmv,fla,flv',
 			overlay : {
 				opacity : 0.7,
-				image : '/images/black.png',
-				presetImage : '/images/black-70.png'
+				image : '/images/lightwindow/black.png',
+				presetImage : '/images/lightwindow/black-70.png'
 			},
 			skin : 	{
 				main : 	'<div id="lightwindow_container" >'+
@@ -204,7 +204,7 @@ lightwindow.prototype = {
 							'</div>'+
 						'</div>',	
 				loading : 	'<div id="lightwindow_loading" >'+
-								'<img src="/images/ajax-loading.gif" alt="loading" />'+
+								'<img src="/images/lightwindow/ajax-loading.gif" alt="loading" />'+
 								'<span>Loading or <a href="javascript: myLightWindow.deactivate();">Cancel</a></span>'+
 								'<iframe name="lightwindow_loading_shim" id="lightwindow_loading_shim" src="javascript:false;" frameBorder="0" scrolling="no"></iframe>'+
 							'</div>',
