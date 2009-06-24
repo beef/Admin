@@ -46,7 +46,7 @@ class AdminScaffoldGenerator < ScaffoldGenerator
       m.route_resources controller_file_name
       m.route_resources_to_namespace('admin', controller_file_name)
 
-      m.dependency 'model', [name] + @args, :collision => :skip
+      m.dependency 'model', [name, '--skip-fixture'] + @args, :collision => :skip
     end
   end
 
