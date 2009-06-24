@@ -7,7 +7,7 @@ begin
     gem.name = "admin_area"
     gem.summary = %Q{Rails engine that provides a standard admin area with user managament}
     gem.email = "steve@wearebeef.co.uk"
-    gem.homepage = "http://github.com/stengland/admin_area"
+    gem.homepage = "http://github.com/beef/admin"
     gem.authors = ["Steve England"]
     gem.add_dependency("thoughtbot-clearance", [">= 0.6.6"])
     gem.add_dependency("thoughtbot-sortable_table")
