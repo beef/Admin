@@ -65,6 +65,9 @@ class Admin::UsersController < Admin::BaseController
   # DELETE /users/1
   # DELETE /users/1.xml
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    
     respond_to do |format|
       format.html { redirect_to(admin_users_url) }
       format.xml  { head :ok }
