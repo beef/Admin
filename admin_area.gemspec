@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Steve England"]
-  s.date = %q{2009-07-14}
+  s.date = %q{2009-08-04}
   s.email = %q{steve@wearebeef.co.uk}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
      "app/views/admin/users/index.html.erb",
      "app/views/admin/users/show.html.erb",
      "app/views/layouts/admin.html.erb",
+     "app/views/sessions/new.html.erb",
      "config/routes.rb",
      "generators/admin_area_files/USAGE",
      "generators/admin_area_files/admin_area_files_generator.rb",
@@ -140,7 +141,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/beef/admin}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.3}
+  s.rubygems_version = %q{1.3.5}
   s.summary = %q{Rails engine that provides a standard admin area with user managament}
   s.test_files = [
     "test/admin_area_test.rb",
