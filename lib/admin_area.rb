@@ -25,7 +25,7 @@ module Beef
 
       module InstanceMethods
         def authorise(*roles)
-          deny_access("You do not have the required access privelages to access page") unless current_user.authorised?(*roles)
+          deny_access("You do not have the required access privileges to access page") unless current_user.authorised?(*roles)
         end
       
         def authorised?(*roles, &block)
