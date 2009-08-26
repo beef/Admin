@@ -12,6 +12,13 @@ class AdminAreaFilesGenerator < Rails::Generator::Base
   
   attr_accessible :name
   validates_presence_of :name
+  
+private
+  before_save :set_permalink
+
+  def set_permalink
+    self.permalink = name.parameterize
+  end
 RUBY
       
       

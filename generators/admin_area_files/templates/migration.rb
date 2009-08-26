@@ -8,6 +8,7 @@ class CreateSettingsAndUsers < ActiveRecord::Migration
     
     change_table(:users) do |t|
       t.string :name, :limit => 128
+      t.string :permalink, :limit => 128
       t.string :role, :limit => 10
     end
   end
