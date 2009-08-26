@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{admin_area}
-  s.version = "0.1.3"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Steve England"]
-  s.date = %q{2009-08-04}
+  s.date = %q{2009-08-26}
   s.email = %q{steve@wearebeef.co.uk}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -47,8 +47,10 @@ Gem::Specification.new do |s|
      "generators/admin_area_files/templates/public/images/admin/accept_button.gif",
      "generators/admin_area_files/templates/public/images/admin/add.png",
      "generators/admin_area_files/templates/public/images/admin/application_cascade.png",
+     "generators/admin_area_files/templates/public/images/admin/arrow_down.gif",
      "generators/admin_area_files/templates/public/images/admin/arrow_left.gif",
      "generators/admin_area_files/templates/public/images/admin/arrow_right.gif",
+     "generators/admin_area_files/templates/public/images/admin/arrow_up.gif",
      "generators/admin_area_files/templates/public/images/admin/button_bg.gif",
      "generators/admin_area_files/templates/public/images/admin/cancel_button.gif",
      "generators/admin_area_files/templates/public/images/admin/cursor_arrow.gif",
@@ -74,8 +76,10 @@ Gem::Specification.new do |s|
      "generators/admin_area_files/templates/public/images/admin/picture_square.png",
      "generators/admin_area_files/templates/public/images/admin/picture_thumb.png",
      "generators/admin_area_files/templates/public/images/admin/pictures.png",
+     "generators/admin_area_files/templates/public/images/admin/sub_arrow_right.gif",
      "generators/admin_area_files/templates/public/images/admin/unapproved.png",
      "generators/admin_area_files/templates/public/images/admin/up_icon.gif",
+     "generators/admin_area_files/templates/public/images/admin/zoom.gif",
      "generators/admin_area_files/templates/public/images/lightwindow/Thumbs.db",
      "generators/admin_area_files/templates/public/images/lightwindow/ajax-loading.gif",
      "generators/admin_area_files/templates/public/images/lightwindow/arrow-down.gif",
