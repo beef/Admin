@@ -1,5 +1,4 @@
 body {
-	background-color: #fff;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Verdana, sans-serif;
 	background: #fcfcf6 url(/images/admin/page_bg.gif) repeat-x;
 	font-size: 10px;
@@ -20,9 +19,6 @@ form p,
 form.setting-form,
 label,
 legend,
-div#footer a,
-div#footer a:active,
-div#footer a:visited,
 div#footer p,
 table tr.actionbar td,
 table th {
@@ -157,10 +153,10 @@ div#main-column form {
 
 
 div#footer {
-	margin: 0 0 0 30px;
-	padding: 8px 5px;
+	padding: 10px 37px 20px 37px;
 	clear: both;
-	border-top: 1px solid #afafaf;
+	background: #33393c;
+	position: relative;
 }
 
 div#errorExplanation {
@@ -194,10 +190,9 @@ div#header h1 strong {
 }
 
 div#main-content h1, div.module h2, div#sub-content h2 {
-	font: bold 1.6em Helvetica, Arial, Verdana, sans-serif;
+	font: bold 2.5em Helvetica, Arial, Verdana, sans-serif;
 	padding: 10px 0 5px;
 	border-bottom: 1px solid #afafaf;
-	text-transform: capitalize;
 	
 }
 
@@ -253,34 +248,32 @@ body#help ul  {
 }
 
 ul#topnav {
-	background: #818181 url(/images/admin/nav_bg.gif);
+	background: #4a5154;
 	list-style-type: none;
-	padding: 0 0 0 30px;
+	padding-left: 37px;
+	border-top: solid 1px #596063;
 }
 
-ul#topnav li {
-	display: inline;
-
-	
-}
+ul#topnav li { display: inline;}
 
 ul#topnav li a {
 	display: block;
 	float: left;
-	height: 36px;
-	padding: 0 8px;
-	line-height: 26px;
-	color: #f6f7e7;
-	text-decoration: none;
+	padding: 10px 10px 17px 10px;
+	margin-left: -1px;
 	font-size: 1.1em;
 	font-weight: bold;
-	white-space : nowrap;
-		background: #818181 url(/images/admin/nav_bg.gif) repeat-x;
+	border-right: dotted 1px #596063;
+	border-left: dotted 1px #596063;
+	color:#fff;
 }
 
-ul#topnav li a:hover, ul#topnav li a.selected {
-	color: #000;
-	background: url(/images/admin/button_bg.gif);
+ul#topnav li a:hover {background-color: #596063; text-decoration: none;}
+
+ul#topnav li a.selected {
+	background: #edefe4;
+	border-left: solid 1px #edefe4;
+	border-right: solid 1px #edefe4;
 }
 
 p#main-choice {
@@ -367,10 +360,6 @@ table tr.actionbar td {
 td.title {
     padding-right: 30px;
 }
-td.date {
-    width: 20%;
-}
-
 a.feature {
 	background: url('../../images/admin/unapproved.png') no-repeat; 
 }
@@ -378,12 +367,15 @@ a.featured {
 	background: url('../../images/admin/accept_button.gif') no-repeat; 
 }
 
-a.edit, a.delete, a.editor_cancel, a.feature, ul.buttons a {
+.choices a, #subscribers .choices a, .level-1 span.indent, a.move-up, a.move-down, a.page_up, a.page_down, a.edit, a.add, a.show, a.delete, a.editor_cancel, a.feature, ul.buttons a {
 	float: left;
 	margin-right: 6px;
 	height: 16px;
 	width: 16px;
 }
+
+.choices a {background: url('../../images/admin/add.png') no-repeat; padding: 2px 0 0 20px; width:100px;}
+#subscribers .choices a {background: url('../../images/admin/arrow_down.gif') no-repeat; padding: 2px 0 0 20px; width:100px;}
 
 a.left {
 	float: left;
@@ -443,7 +435,7 @@ a.right {
 ul#status {
 	margin: 9px 30px 0 auto;
 	padding: 5px 0 0 7px;
-	width: 405px;
+	width: 360px;
 	height: 19px;
 	background: url(/images/admin/info_bg.gif) repeat-x;
 	white-space: nowrap;
@@ -472,9 +464,13 @@ div#footer p {
 	font-size: 10px;
 }
 
+div#footer a {
+	color: #fff;
+	text-decoration:none;
+}
 
 div#footer a:hover {
-	color: #444;
+	text-decoration:underline;
 }
 
 label {
@@ -584,9 +580,43 @@ a.help {
     font-weight: bold;
 }
 
+.level-0 .title {
+	font-size:14px;
+}
+
+.level-1 .title {
+	padding-left:20px;
+}
+
+.level-2 .title {
+	padding-left:70px;
+}
+
+
+.level-1 {
+	background: url(/images/admin/arrow_right.gif) no-repeat 2% 40%;
+}
+
+.level-2 {
+	background: url(/images/admin/sub_arrow_right.gif) no-repeat 5% 40%;
+}
+
 a.edit {
 	background: url(/images/admin/edit_button.gif) no-repeat;
 }
+
+a.show {
+	background: url(/images/admin/zoom.gif) no-repeat;
+}
+
+a.page_up, a.move-up {
+	background: url(/images/admin/arrow_up.gif) no-repeat;
+}
+
+a.page_down, a.move-down {
+	background: url(/images/admin/arrow_down.gif) no-repeat;
+}
+
 a.images {
 	background: url(/images/admin/pictures.png) no-repeat;
 	padding-left: 20px;
@@ -950,8 +980,15 @@ form p {
 /* eo:password strength */
 
 /* BIR */
+.title span,
 a.editor_cancel,
 a.edit,
+a.show,
+a.page_up,
+a.page_down,
+a.move-up,
+a.move-down,
+a.add,
 a.delete,
 a.remove,
 a.left,
@@ -962,10 +999,11 @@ a.feature,
 dl#asset-browser dd li a.action, 
 input.editor_ok_button,
 a.image-size  {
-	display: block;
+	display:block;
 	letter-spacing : -1em;
 	text-indent: -1000em;
 	overflow: hidden;
+	line-height:0;
 }
 
 #page_preview {
