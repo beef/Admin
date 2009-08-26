@@ -33,6 +33,7 @@
 <% for attribute in attributes -%>
       <%%= sortable_table_header :name => "<%= attribute.column.human_name %>",  :sort => "<%= attribute.name %>" %>
 <% end -%>
+      <th colspan="2">Actions</th>
     </tr>
   </tfoot>
 </table>
