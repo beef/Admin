@@ -23,12 +23,7 @@
   </fieldset>
 
   <fieldset id="flickrsettings"><legend>Flickr Settings</legend>
-  <% if @unauthorised %>
-    <p>You are currently unauthorised because <%= @unauthorised %>, please <%= link_to 'login to flickr', @login_url %>
-  <% end -%>
-    <%= setting_form [['flickr_user_id','text'],
-                ['flickr_api_key','text'],
-                ['flickr_api_secret','text']] %>
+  <%= setting_form :flickr_user_id %>
   </fieldset>
   
   
