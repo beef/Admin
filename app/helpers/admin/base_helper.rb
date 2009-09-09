@@ -35,7 +35,7 @@ module Admin::BaseHelper
   
   def preview_link(object)
     url = url_for([:preview, :admin, object ])
-    link_to_function 'Preview', "new Ajax.Updater('page_preview', '#{url}', {asynchronous:true, evalScripts:true, parameters: this.up('form').serialize() + '&assets=' + getAssetIDs('asset-list')})", :class => 'button' 
+    link_to_function 'Preview', "new Ajax.Updater('page_preview', '#{url}', {asynchronous:true, evalScripts:true, parameters: $(this).up('form').serialize() + '&assets=' + getAssetIDs('asset-list')})", :class => 'button' 
   end
 
 end
