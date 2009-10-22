@@ -1,17 +1,20 @@
 <h1>Listing <%= plural_name.titleize %></h1>
 
 <table>
-  <tr>
+  <thead>
+    <tr>
 <% for attribute in attributes -%>
-    <th><%= attribute.column.human_name %></th>
+      <th><%= attribute.column.human_name %></th>
 <% end -%>
-  </tr>
-
+    </tr>
+  </thead>
+  <tbody>
 <%% @<%= plural_name %>.each do |<%= singular_name %>| %>
-  <tr>
+    <tr>
 <% for attribute in attributes -%>
-    <td><%%=h <%= singular_name %>.<%= attribute.name %> %></td>
+      <td><%%=h <%= singular_name %>.<%= attribute.name %> %></td>
 <% end -%>
-  </tr>
+    </tr>
 <%% end %>
+  </tbody>
 </table>

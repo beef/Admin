@@ -3,13 +3,15 @@
 <ul class="choices">
   <li><%%= link_to 'New <%= singular_name.titleize %>', new_admin_<%= singular_name %>_path %></li>
 </ul>
-
+<%% paginated_section do -%>
 <table>
   <thead>
     <tr>
 <% for attribute in attributes -%>
-      <%%= sortable_table_header :name => "<%= attribute.column.human_name %>",  :sort => "<%= attribute.name %>" %>
+      <%%= sortable_table_header :name => "<%= attribute.column.human_name %>", :sort => "<%= attribute.name %>" %>
 <% end -%>
+      <%%= sortable_table_header :name => "Created", :sort => "created_at" %>
+      <%%= sortable_table_header :name => "Updated", :sort => "updated_at" %>
       <th colspan="2">Actions</th>
     </tr>
   </thead>
@@ -23,6 +25,8 @@
       <td><%%=h <%= singular_name %>.<%= attribute.name %> %></td>
 <% end -%>
 <% end -%>
+      <td><%%=h <%= singular_name %>.created_at.to_formatted_s(:short_ordinal) %></td>
+      <td><%%=h <%= singular_name %>.created_at.to_formatted_s(:short_ordinal) %></td>
       <td><%%= link_to 'Edit', admin_<%= singular_name %>_path(<%= singular_name %>), :class => 'edit' %></td>
       <td><%%= link_to 'Destroy', admin_<%= singular_name %>_path(<%= singular_name %>), :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %></td>
     </tr>
@@ -33,7 +37,10 @@
 <% for attribute in attributes -%>
       <%%= sortable_table_header :name => "<%= attribute.column.human_name %>",  :sort => "<%= attribute.name %>" %>
 <% end -%>
+      <%%= sortable_table_header :name => "Created", :sort => "created_at" %>
+      <%%= sortable_table_header :name => "Updated", :sort => "updated_at" %>
       <th colspan="2">Actions</th>
     </tr>
   </tfoot>
 </table>
+<%% end -%>
