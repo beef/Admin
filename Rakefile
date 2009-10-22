@@ -4,14 +4,14 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "admin_area"
+    gem.name = "beef-admin_area"
     gem.summary = %Q{Rails engine that provides a standard admin area with user managament}
     gem.email = "steve@wearebeef.co.uk"
     gem.homepage = "http://github.com/beef/admin"
     gem.authors = ["Steve England"]
-    gem.add_dependency("thoughtbot-clearance", [">= 0.6.6"])
+    gem.add_dependency("clearance", [">= 0.6.6"])
     gem.add_dependency("thoughtbot-sortable_table")
-    gem.add_dependency("mislav-will_paginate", ['>= 2.3.8'])
+    gem.add_dependency("will_paginate", ['>= 2.3.8'])
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
