@@ -5,7 +5,7 @@ class Admin::UsersController < Admin::BaseController
   # GET /users
   # GET /users.xml
   def index
-    @users = User.paginate :page => params[:page], :per_page => 20, :order => sort_order
+    @users = User.paginate :page => params[:page], :per_page => 20, :order => sort_order(:default => 'asc')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -67,6 +67,7 @@ class Admin::UsersController < Admin::BaseController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    flash[:notice] = 'User was successfully deleted.'
     
     respond_to do |format|
       format.html { redirect_to(admin_users_url) }
