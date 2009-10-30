@@ -22,7 +22,7 @@
       <td><%=h user.email %></td>
       <td><%=h user.role %></td>
       <td><%= link_to 'Edit', [:admin, user], :class => 'edit' %></td>
-      <td><%= link_to 'Destroy', [:admin, user], :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %></td>
+      <td><%= link_to 'Delete', [:admin, user], :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %></td>
     </tr>
 <% end %>
   </tbody>
