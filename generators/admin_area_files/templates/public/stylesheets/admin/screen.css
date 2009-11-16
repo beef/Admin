@@ -374,8 +374,8 @@ a.featured {
 	width: 16px;
 }
 
-.choices a {background: url('../../images/admin/add.png') no-repeat; padding: 2px 0 0 20px; width:100px;}
-#subscribers .choices a {background: url('../../images/admin/arrow_down.gif') no-repeat; padding: 2px 0 0 20px; width:100px;}
+.choices a {background: url('../../images/admin/add.png') no-repeat; padding: 2px 0 0 20px; width:auto; white-space:nowrap;}
+#subscribers .choices a {background: url('../../images/admin/arrow_down.gif') no-repeat;}
 
 a.left {
 	float: left;
