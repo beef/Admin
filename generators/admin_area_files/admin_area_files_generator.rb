@@ -29,7 +29,32 @@ RUBY
       m.directory File.join("public", "stylesheets", "admin")
       m.directory File.join("lib", "tasks")
       m.directory File.join("app", "views", "admin", "settings")
-      
+
+#tiny_mce
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "utils")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "langs")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "themes")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "themes", "advanced")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "themes", "advanced", "skins")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "themes", "advanced", "skins", "default")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "themes", "advanced", "skins", "default", "img")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "themes", "advanced", "langs")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "themes", "advanced", "img")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "themes", "advanced", "js")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "template")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "template", "css")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "template", "langs")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "template", "js")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "inlinepopups")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "inlinepopups", "skins")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "inlinepopups", "skins", "clearlooks2")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "inlinepopups", "skins", "clearlooks2", "img")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "safari")
+
+
+
       ["public/images/admin/accept_button.gif",
       "public/images/admin/add.png",
       "public/images/admin/application_cascade.png",
@@ -103,6 +128,7 @@ RUBY
       "public/javascripts/lightwindow.js",
       "public/javascripts/textile-editor-config.js",
       "public/javascripts/textile-editor.js",
+      "public/javascripts/tiny-mce-config.js",          #tinymce
       "public/stylesheets/admin/handheld.css",
       "public/stylesheets/admin/ie.css",
       "public/stylesheets/admin/print.css",
@@ -114,7 +140,53 @@ RUBY
       "lib/tasks/admin_area.rake",
       "config/initializers/settings.rb",
       "config/initializers/admin_area.rb",
-      "app/views/admin/settings/show.html.erb"].each do |file|
+      "app/views/admin/settings/show.html.erb",
+
+#tiny_mce
+      "public/javascripts/admin/tiny_mce/utils/mctabs.js",
+      "public/javascripts/admin/tiny_mce/utils/validate.js",
+      "public/javascripts/admin/tiny_mce/utils/form_utils.js",
+      "public/javascripts/admin/tiny_mce/tiny_mce.js",
+      "public/javascripts/admin/tiny_mce/langs/en.js",
+      "public/javascripts/admin/tiny_mce/themes/advanced/anchor.htm",
+      "public/javascripts/admin/tiny_mce/themes/advanced/link.htm",
+      "public/javascripts/admin/tiny_mce/themes/advanced/skins/default/content.css",
+      "public/javascripts/admin/tiny_mce/themes/advanced/skins/default/ui.css",
+      "public/javascripts/admin/tiny_mce/themes/advanced/skins/default/img/tabs.gif",
+      "public/javascripts/admin/tiny_mce/themes/advanced/skins/default/img/buttons.png",
+      "public/javascripts/admin/tiny_mce/themes/advanced/skins/default/img/progress.gif",
+      "public/javascripts/admin/tiny_mce/themes/advanced/skins/default/img/menu_check.gif",
+      "public/javascripts/admin/tiny_mce/themes/advanced/skins/default/img/items.gif",
+      "public/javascripts/admin/tiny_mce/themes/advanced/skins/default/img/menu_arrow.gif",
+      "public/javascripts/admin/tiny_mce/themes/advanced/skins/default/dialog.css",
+      "public/javascripts/admin/tiny_mce/themes/advanced/editor_template.js",
+      "public/javascripts/admin/tiny_mce/themes/advanced/langs/en_dlg.js",
+      "public/javascripts/admin/tiny_mce/themes/advanced/langs/en.js",
+      "public/javascripts/admin/tiny_mce/themes/advanced/img/icons.gif",
+      "public/javascripts/admin/tiny_mce/themes/advanced/img/colorpicker.jpg",
+      "public/javascripts/admin/tiny_mce/themes/advanced/js/link.js",
+      "public/javascripts/admin/tiny_mce/themes/advanced/js/color_picker.js",
+      "public/javascripts/admin/tiny_mce/themes/advanced/js/anchor.js",
+      "public/javascripts/admin/tiny_mce/themes/advanced/color_picker.htm",
+      "public/javascripts/admin/tiny_mce/plugins/template/blank.htm",
+      "public/javascripts/admin/tiny_mce/plugins/template/css/template.css",
+      "public/javascripts/admin/tiny_mce/plugins/template/editor_plugin.js",
+      "public/javascripts/admin/tiny_mce/plugins/template/template.htm",
+      "public/javascripts/admin/tiny_mce/plugins/template/langs/en_dlg.js",
+      "public/javascripts/admin/tiny_mce/plugins/template/js/template.js",
+      "public/javascripts/admin/tiny_mce/plugins/inlinepopups/editor_plugin.js",
+      "public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/window.css",
+      "public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif",
+      "public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/corners.gif",
+      "public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/button.gif",
+      "public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/vertical.gif",
+      "public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/horizontal.gif",
+      "public/javascripts/admin/tiny_mce/plugins/inlinepopups/template.htm",
+      "public/javascripts/admin/tiny_mce/plugins/safari/blank.htm",
+      "public/javascripts/admin/tiny_mce/plugins/safari/editor_plugin.js",
+      "public/javascripts/admin/tiny_mce/tiny_mce_popup.js"
+
+      ].each do |file|
          m.file file, file
        end
        
