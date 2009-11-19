@@ -199,8 +199,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Rails engine that provides a standard admin area with user managament}
   s.test_files = [
-    "test/admin_area_test.rb",
-     "test/test_helper.rb"
+    "test/test_helper.rb",
+     "test/admin_area_test.rb"
   ]
 
   if s.respond_to? :specification_version then
