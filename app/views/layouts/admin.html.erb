@@ -19,10 +19,7 @@
 <%= stylesheet_link_tag 'admin/handheld', :media=>'handheld' %>
 <!--[if IE]><link href="/stylesheets/admin/ie.css" media="screen" rel="Stylesheet" type="text/css" /><![endif]-->
 
-<%= javascript_include_tag 'prototype', 'effects', 'dragdrop', 'controls', 'admin/application', 'textile-editor' %>
-<%= #for tiny_mce use the following only
-    javascript_include_tag 'prototype', 'effects', 'dragdrop', 'controls', 'admin/tiny_mce/tiny_mce', 'tiny-mce-config', 'admin/application'
-%>
+<%= javascript_include_tag 'prototype', 'effects', 'dragdrop', 'controls', 'admin/tiny_mce/tiny_mce', 'tiny-mce-config', 'admin/application' %>
 <%= @content_for_header %>
 
 </head>
