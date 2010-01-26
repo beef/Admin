@@ -5,11 +5,11 @@ document.observe("dom:loaded", function(){
     editor_selector : "editor",
     strict_loading_mode : 1,
     convert_urls : false,
-    plugins : "safari,inlinepopups",
+    plugins : "safari,inlinepopups,paste",
     //"safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras",
     // Theme options
     theme_advanced_blockformats : "h2,h3,h4",
-    theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,formatselect,|,bullist,numlist,|,link,unlink,|,indent,outdent,|,justifyleft,justifycenter,justifyright,justifyfull,|,code",
+    theme_advanced_buttons1 :  "undo,redo,|,bold,italic,underline,strikethrough,|,formatselect,|,bullist,numlist,|,link,unlink,|,indent,outdent,|,justifyleft,justifycenter,justifyright,justifyfull,|,code",
     theme_advanced_buttons2 : "",
     theme_advanced_buttons3 : "",
     theme_advanced_buttons4 : "",
@@ -18,6 +18,10 @@ document.observe("dom:loaded", function(){
     theme_advanced_toolbar_align : "left",
     theme_advanced_statusbar_location : "bottom",
     theme_advanced_resizing : true,
+    
+    // Paste
+    paste_auto_cleanup_on_paste : true,
+    paste_remove_styles: true,
     
     // Drop lists for link/image/media/template dialogs
     external_link_list_url : false,
@@ -28,28 +32,18 @@ document.observe("dom:loaded", function(){
 
 saveEditorToElement = function(inst){
   inst.save();
-}
-
-
-
+};
 
 // Add image. insertAtCursor function in apllcation.js
 addImage = function(imageurl,alt) {
-//  alt = alt.replace("(","").replace(")","");
-//  insertAtCursor(tinyMCE.activeEditor.getContainer(), '\n\n!'+imageurl+'('+alt+')!\n\n');
   tinyMCE.execInstanceCommand(tinyMCE.activeEditor.id,"mceInsertContent",false, '<img src="' + imageurl + '" alt="' + alt + '" />');
 };
 
 addLinkedImage = function(imageurl,alt) {
-//  alt = alt.replace("(","").replace(")","");
-//  insertAtCursor(tinyMCE.activeEditor.getContainer(), '\n\n!'+imageurl+'('+alt+')!:'+imageurl+'\n\n');
-
    tinyMCE.execInstanceCommand(tinyMCE.activeEditor.id,"mceInsertContent",false, '<a href="' + imageurl + '"><img src="' + imageurl + '" alt="' + alt + '" /></a>');
 };
 
 addLink = function(text, url) {
-  //insertAtCursor(tinyMCE.activeEditor.getContainer(), '"'+ text +'":'+ url + ' ');
-  
   tinyMCE.execInstanceCommand(tinyMCE.activeEditor.id,"mceInsertContent",false,'<a href="' + url + '">' + text + '</a>');
 };
 

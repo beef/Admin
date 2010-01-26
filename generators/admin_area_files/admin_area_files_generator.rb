@@ -1,18 +1,18 @@
 require File.expand_path(File.dirname(__FILE__) + "/lib/insert_commands.rb")
 
 class AdminAreaFilesGenerator < Rails::Generator::Base
-  
+
   def manifest
     record do |m|
-      
+
       m.insert_into 'app/models/user.rb', <<-RUBY
 # List of allowed roles. Removing admin role will cause errors
   ROLES = [:team_member, :admin]
   include Beef::AdminArea::Roles
-  
+
   attr_accessible :name
   validates_presence_of :name
-  
+
 private
   before_save :set_permalink
 
@@ -20,8 +20,8 @@ private
     self.permalink = name.parameterize
   end
 RUBY
-      
-      
+
+
       m.directory File.join("public", "images", "admin")
       m.directory File.join("public", "images", "textile-editor")
       m.directory File.join("public", "images", "lightwindow")
@@ -52,6 +52,9 @@ RUBY
       m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "inlinepopups", "skins", "clearlooks2")
       m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "inlinepopups", "skins", "clearlooks2", "img")
       m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "safari")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "paste")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "paste", "js")
+      m.directory File.join("public", "javascripts", "admin", "tiny_mce", "plugins", "paste", "langs")
 
 
 
@@ -183,6 +186,12 @@ RUBY
       "public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/button.gif",
       "public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/vertical.gif",
       "public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/horizontal.gif",
+      "public/javascripts/admin/tiny_mce/plugins/paste/editor_plugin.js",
+      "public/javascripts/admin/tiny_mce/plugins/paste/js/pastetext.js",
+      "public/javascripts/admin/tiny_mce/plugins/paste/js/pasteword.js",
+      "public/javascripts/admin/tiny_mce/plugins/paste/langs/en_dlg.js",
+      "public/javascripts/admin/tiny_mce/plugins/paste/pastetext.htm",
+      "public/javascripts/admin/tiny_mce/plugins/paste/pasteword.htm",
       "public/javascripts/admin/tiny_mce/plugins/inlinepopups/template.htm",
       "public/javascripts/admin/tiny_mce/plugins/safari/blank.htm",
       "public/javascripts/admin/tiny_mce/plugins/safari/editor_plugin.js",
@@ -191,9 +200,9 @@ RUBY
       ].each do |file|
          m.file file, file
        end
-       
+
        m.migration_template 'migration.rb', 'db/migrate', :migration_file_name => 'create_settings_and_users'
-       
+
     end
   end
 end
