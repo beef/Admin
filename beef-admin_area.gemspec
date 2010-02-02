@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{beef-admin_area}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Steve England"]
-  s.date = %q{2009-11-19}
+  s.date = %q{2010-01-26}
   s.email = %q{steve@wearebeef.co.uk}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -149,6 +149,7 @@ Gem::Specification.new do |s|
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/js/anchor.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/js/color_picker.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/js/link.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/js/source_editor.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/langs/en.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/langs/en_dlg.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/link.htm",
@@ -161,6 +162,7 @@ Gem::Specification.new do |s|
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/default/img/progress.gif",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/default/img/tabs.gif",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/default/ui.css",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/source_editor.htm",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/tiny_mce.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/tiny_mce_popup.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/utils/form_utils.js",
@@ -199,8 +201,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Rails engine that provides a standard admin area with user managament}
   s.test_files = [
-    "test/test_helper.rb",
-     "test/admin_area_test.rb"
+    "test/admin_area_test.rb",
+     "test/test_helper.rb"
   ]
 
   if s.respond_to? :specification_version then
