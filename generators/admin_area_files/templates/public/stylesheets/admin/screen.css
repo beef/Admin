@@ -434,11 +434,11 @@ a.right {
 
 ul#status {
 	margin: 9px 30px 0 auto;
-	padding: 5px 0 0 7px;
-	width: 360px;
+	padding: 5px 7px 0 7px;
+	width: auto;
 	height: 19px;
 	background: url(/images/admin/info_bg.gif) repeat-x;
-	white-space: nowrap;
+	float:right;
 }
 
 
