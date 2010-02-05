@@ -96,7 +96,7 @@ var AJ = {
   },
 
   authenticity_token:function() {
-    return AJ.encode_authenticity_token($$('input[name="authenticity_token"]')[0]);
+    return AJ.encode_authenticity_token(AUTH_TOKEN);
   },
 
   authenticity_token_query_parameter_for_page:function() {
