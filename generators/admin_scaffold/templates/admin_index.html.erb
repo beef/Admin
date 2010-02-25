@@ -26,7 +26,7 @@
 <% end -%>
 <% end -%>
       <td><%%=h <%= singular_name %>.created_at.to_formatted_s(:short_ordinal) %></td>
-      <td><%%=h <%= singular_name %>.created_at.to_formatted_s(:short_ordinal) %></td>
+      <td><%%=h <%= singular_name %>.updated_at.to_formatted_s(:short_ordinal) %></td>
       <td><%%= link_to 'Edit', admin_<%= singular_name %>_path(<%= singular_name %>), :class => 'edit', :title => 'Edit this <%= singular_name %>' %></td>
       <td><%%= link_to 'Delete', admin_<%= singular_name %>_path(<%= singular_name %>), :confirm => 'Are you sure?', :method => :delete, :class => 'delete', :title => 'Delete this <%= singular_name %>' %></td>
     </tr>
