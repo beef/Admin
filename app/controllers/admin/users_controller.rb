@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::BaseController
   authorise :roles => :admin
-  sortable_attributes :name, :email, :role 
+  sortable_attributes :name, :email, :role
 
   # GET /users
   # GET /users.xml
@@ -27,13 +27,15 @@ class Admin::UsersController < Admin::BaseController
 
   # POST /users
   # POST /users.xml
-  def create    
-    @user = User.new(params[:user])
-    # Because mass assignment is protected
-    @user.role = params[:user][:role]
+  def create
+    @user = User.new(params[:user]) do |user|
+      # No need for email confirmation
+      user.email_confirmed = true
+      # Because mass assignment is protected
+      user.role = params[:user][:role]
+    end
     respond_to do |format|
       if @user.save
-        @user.confirm_email!
         flash[:notice] = 'User was successfully created.'
         format.html { redirect_to(admin_users_url) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
@@ -46,7 +48,7 @@ class Admin::UsersController < Admin::BaseController
 
   # PUT /users/1
   # PUT /users/1.xml
-  def update  
+  def update
     @user = User.find(params[:id])
     # Because mass assignment is protected
     @user.role = params[:user][:role]
@@ -68,11 +70,11 @@ class Admin::UsersController < Admin::BaseController
     @user = User.find(params[:id])
     @user.destroy
     flash[:notice] = 'User was successfully deleted.'
-    
+
     respond_to do |format|
       format.html { redirect_to(admin_users_url) }
       format.xml  { head :ok }
     end
   end
-  
-end       
+
+end

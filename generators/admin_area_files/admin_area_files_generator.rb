@@ -10,7 +10,6 @@ class AdminAreaFilesGenerator < Rails::Generator::Base
   ROLES = [:team_member, :admin]
   include Beef::AdminArea::Roles
 
-  attr_accessible :name
   validates_presence_of :name
 
 private
