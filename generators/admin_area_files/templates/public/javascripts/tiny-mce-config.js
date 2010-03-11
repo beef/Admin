@@ -8,7 +8,7 @@ document.observe("dom:loaded", function(){
     plugins : "safari,inlinepopups,paste",
     //"safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras",
     // Theme options
-    theme_advanced_blockformats : "h2,h3,h4",
+    theme_advanced_blockformats : "p,h2,h3,h4",
     theme_advanced_buttons1 :  "undo,redo,|,bold,italic,underline,strikethrough,|,formatselect,|,bullist,numlist,|,link,unlink,|,indent,outdent,|,justifyleft,justifycenter,justifyright,justifyfull,|,code",
     theme_advanced_buttons2 : "",
     theme_advanced_buttons3 : "",
