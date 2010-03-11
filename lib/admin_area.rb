@@ -9,11 +9,11 @@ module Beef
         controller.class_eval do
           helper_method :authorised?
           helper_method :not_authorised?
-        
+
           hide_action :authorised?, :authorise, :not_authorised?
         end
       end
-    
+
       module ClassMethods
         def authorise(options)
           raise ArgumentError, 'Roles must be suplied' if options[:roles].nil?
@@ -27,34 +27,35 @@ module Beef
         def authorise(*roles)
           deny_access("You do not have the required access privileges to access page") unless current_user.authorised?(*roles)
         end
-      
+
         def authorised?(*roles, &block)
           return unless current_user.authorised?(*roles)
           if block_given?
             yield
           else
             return true
-          end 
+          end
         end
-      
+
         def not_authorised?(*roles, &block)
           return if current_user.authorised?(*roles)
           if block_given?
             yield
           else
             return true
-          end 
+          end
         end
       end
 
     end
-  
+
     module Roles
 
       def self.included(base)
         base.send(:include, InstanceMethods)
 
         base.class_eval do
+          attr_protected :role
           User::ROLES.each do |r|
             self.class_eval <<-RUBY
               def #{r}?
