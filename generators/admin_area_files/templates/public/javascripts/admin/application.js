@@ -92,7 +92,7 @@ insertAtCursor = function(myField, myValue) {
 // http://www.saynotomilk.com/archives/33
 var AJ = {
   encode_authenticity_token:function(token) {
-    return encodeURIComponent($(token).value);
+    return encodeURIComponent(token);
   },
 
   authenticity_token:function() {
