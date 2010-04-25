@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Steve England"]
-  s.date = %q{2010-03-11}
+  s.date = %q{2010-04-25}
   s.email = %q{steve@wearebeef.co.uk}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -211,16 +211,16 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<clearance>, [">= 0.6.6"])
-      s.add_runtime_dependency(%q<thoughtbot-sortable_table>, [">= 0"])
+      s.add_runtime_dependency(%q<sortable_table>, [">= 0"])
       s.add_runtime_dependency(%q<will_paginate>, [">= 2.3.8"])
     else
       s.add_dependency(%q<clearance>, [">= 0.6.6"])
-      s.add_dependency(%q<thoughtbot-sortable_table>, [">= 0"])
+      s.add_dependency(%q<sortable_table>, [">= 0"])
       s.add_dependency(%q<will_paginate>, [">= 2.3.8"])
     end
   else
     s.add_dependency(%q<clearance>, [">= 0.6.6"])
-    s.add_dependency(%q<thoughtbot-sortable_table>, [">= 0"])
+    s.add_dependency(%q<sortable_table>, [">= 0"])
     s.add_dependency(%q<will_paginate>, [">= 2.3.8"])
   end
 end
