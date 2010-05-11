@@ -34,6 +34,28 @@ saveEditorToElement = function(inst){
   inst.save();
 };
 
+/*
+  This can be expanded as clients report issues with characters not being cufon-ed
+  The main reason for this conversion is that alot of fonts we use are not full fonts,
+  they do not have extended unicode range (missing Latin A or B most of the time, and forget
+  about cyrillic, greek/coptic and russian!)
+*/
+tinyMCEcleanup = function(type, value){
+  // add more event types here for more cleanup points
+  //    get_from_editor is trigger on html editor open and form submit
+  if(['get_from_editor'].indexOf(type) == -1) return value;
+  patterns =     ["(\u2018|\u2019|&(r|l)squo;)","(\u201c|\u201d|&(r|l)squo;)"];
+  replacements = ["&apos;",     '&quot;'];
+  
+  $A(patterns).each(function(p, index){
+    r = replacements[index];
+    re=new RegExp(p,'ig');
+    value = value.replace(re,r);
+  });
+
+  return value;
+}
+
 // Add image. insertAtCursor function in apllcation.js
 addImage = function(imageurl,alt) {
   tinyMCE.execInstanceCommand(tinyMCE.activeEditor.id,"mceInsertContent",false, '<img src="' + imageurl + '" alt="' + alt + '" />');
