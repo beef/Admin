@@ -10,7 +10,7 @@ begin
     gem.homepage = "http://github.com/beef/admin"
     gem.authors = ["Steve England"]
     gem.add_dependency("clearance", [">= 0.6.6"])
-    gem.add_dependency("thoughtbot-sortable_table")
+    gem.add_dependency("sortable_table")
     gem.add_dependency("will_paginate", ['>= 2.3.8'])
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
