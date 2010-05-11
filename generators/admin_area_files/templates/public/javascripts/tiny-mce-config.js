@@ -44,7 +44,7 @@ tinyMCEcleanup = function(type, value){
   // add more event types here for more cleanup points
   //    get_from_editor is trigger on html editor open and form submit
   if(['get_from_editor'].indexOf(type) == -1) return value;
-  patterns =     ["(\u2018|\u2019|&(r|l)squo;)","(\u201c|\u201d|&(r|l)squo;)"];
+  patterns =     ["(\u2018|\u2019|&(r|l)squo;)","(\u201c|\u201d|&(r|l)dquo;)"];
   replacements = ["&apos;",     '&quot;'];
   
   $A(patterns).each(function(p, index){
