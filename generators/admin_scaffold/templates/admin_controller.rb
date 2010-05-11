@@ -1,5 +1,5 @@
 class Admin::<%= controller_class_name %>Controller < Admin::BaseController
-  sortable_attributes :created_at, :updated_at, :<%= attributes.collect{|a| a.name}.join(', :') %> 
+  sortable_attributes :created_at, :updated_at<%= ", :" unless attributes.empty? %><%= attributes.collect{|a| a.name}.join(', :') %> 
 
   def index
     @<%= table_name %> = <%= class_name %>.paginate :page => params[:page], :order => sort_order
