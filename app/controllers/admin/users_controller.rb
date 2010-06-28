@@ -51,7 +51,8 @@ class Admin::UsersController < Admin::BaseController
   def update
     @user = User.find(params[:id])
     # Because mass assignment is protected
-    @user.role = params[:user][:role]
+    @user.role = params[:user].delete(:role)
+    
     respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = 'User was successfully updated.'
