@@ -1,43 +1,36 @@
+<h1>Settings</h1>
+<fieldset id="general"><legend>General</legend>
+  <%= setting_form [['home_page_title','text'],
+              ['default_description','text_area'],
+              ['default_keywords', 'text_area']] %>
+</fieldset>
 
-  <h1>Settings</h1>
-  <fieldset id="general"><legend>General</legend>
-    <%= setting_form [['home_page_title','text'],
-                ['default_description','text_area'],
-                ['default_keywords', 'text_area']] %>
-  </fieldset>
-  
-  <fieldset id="contactdetails"><legend>Contact Details</legend>
-    <%= setting_form([['site_name','text'],
-                ['company_name','text'],
-                ['address_line_1','text'],
-                ['address_line_2','text'],
-                ['district','text'],
-                ['town','text'],
-                ['county','text'],
-                ['postcode','text'],
-                [],
-                ['telephone', 'text'],
-                ['fax', 'text'],
-                ['default_email','text']]) %>
-    
-  </fieldset>
+<fieldset id="contactdetails"><legend>Contact Details</legend>
+  <%= setting_form([['site_name','text'],
+              ['address_line_1','text'],
+              ['address_line_2','text'],
+              ['district','text'],
+              ['town','text'],
+              ['county','text'],
+              ['region','text'],
+              ['postcode','text'],
+              [],
+              ['telephone', 'text'],
+              ['fax', 'text'],
+              ['default_email','text']]) %>
 
-  <fieldset id="flickrsettings"><legend>Flickr Settings</legend>
-  <%= setting_form 'flickr_user_id' %>
-  </fieldset>
-  
-  
-  <fieldset id="analytics"><legend>Google Analytics Settings</legend>
-    <%= setting_form 'google_analytics_web_property_id' %>
-  </fieldset>
+</fieldset>
 
+<fieldset id="analytics"><legend>Google Analytics Settings</legend>
+  <%= setting_form 'google_analytics_web_property_id' %>
+</fieldset>
 
 <% content_for :sub_content do %>
 <h2>Helpful Tips</h2>
-<h3>Default Description</h3>
-<p>The default description describes a page to a search engine. If you do not fill in the description field for a piece of content (e.g. a news item) this will be used instead.</p>
-<h3>Default Keywords</h3>
-<p>The default keywords help promote a page to a search engine. If you do not fill in the keywords field for a piece of content (e.g. a news item) these will be used instead.</p>
-<h3>Default Email</h3>
-<p>This is the email used by the contact and showreel form. All enquiries to the site will be delivered to this email address.</p>
+  <h3>Default Description</h3>
+  <p>The default description describes a page to a search engine. If you do not fill in the description field for a piece of content (e.g. a news item) this will be used instead.</p>
+  <h3>Default Keywords</h3>
+  <p>The default keywords help promote a page to a search engine. If you do not fill in the keywords field for a piece of content (e.g. a news item) these will be used instead.</p>
+  <h3>Default Email</h3>
+  <p>This is the email used by the contact and showreel form. All enquiries to the site will be delivered to this email address.</p>
 <% end %>
