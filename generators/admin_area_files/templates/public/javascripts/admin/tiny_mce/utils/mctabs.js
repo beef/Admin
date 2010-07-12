@@ -1,1 +1,77 @@
-function MCTabs(){this.settings=[]}MCTabs.prototype.init=function(a){this.settings=a};MCTabs.prototype.getParam=function(b,a){var c=null;c=(typeof(this.settings[b])=="undefined")?a:this.settings[b];if(c=="true"||c=="false"){return(c=="true")}return c};MCTabs.prototype.displayTab=function(e,a){var j,d,c,h,g,b,f;j=document.getElementById(a);d=j?j.parentNode:null;c=document.getElementById(e);h=c?c.parentNode:null;g=this.getParam("selection_class","current");if(c&&h){b=h.childNodes;for(f=0;f<b.length;f++){if(b[f].nodeName=="LI"){b[f].className=""}}c.className="current"}if(j&&d){b=d.childNodes;for(f=0;f<b.length;f++){if(b[f].nodeName=="DIV"){b[f].className="panel"}}j.className="current"}};MCTabs.prototype.getAnchor=function(){var b,a=document.location.href;if((b=a.lastIndexOf("#"))!=-1){return a.substring(b+1)}return""};var mcTabs=new MCTabs();
+/**
+ * mctabs.js
+ *
+ * Copyright 2009, Moxiecode Systems AB
+ * Released under LGPL License.
+ *
+ * License: http://tinymce.moxiecode.com/license
+ * Contributing: http://tinymce.moxiecode.com/contributing
+ */
+
+function MCTabs() {
+	this.settings = [];
+};
+
+MCTabs.prototype.init = function(settings) {
+	this.settings = settings;
+};
+
+MCTabs.prototype.getParam = function(name, default_value) {
+	var value = null;
+
+	value = (typeof(this.settings[name]) == "undefined") ? default_value : this.settings[name];
+
+	// Fix bool values
+	if (value == "true" || value == "false")
+		return (value == "true");
+
+	return value;
+};
+
+MCTabs.prototype.displayTab = function(tab_id, panel_id) {
+	var panelElm, panelContainerElm, tabElm, tabContainerElm, selectionClass, nodes, i;
+
+	panelElm= document.getElementById(panel_id);
+	panelContainerElm = panelElm ? panelElm.parentNode : null;
+	tabElm = document.getElementById(tab_id);
+	tabContainerElm = tabElm ? tabElm.parentNode : null;
+	selectionClass = this.getParam('selection_class', 'current');
+
+	if (tabElm && tabContainerElm) {
+		nodes = tabContainerElm.childNodes;
+
+		// Hide all other tabs
+		for (i = 0; i < nodes.length; i++) {
+			if (nodes[i].nodeName == "LI")
+				nodes[i].className = '';
+		}
+
+		// Show selected tab
+		tabElm.className = 'current';
+	}
+
+	if (panelElm && panelContainerElm) {
+		nodes = panelContainerElm.childNodes;
+
+		// Hide all other panels
+		for (i = 0; i < nodes.length; i++) {
+			if (nodes[i].nodeName == "DIV")
+				nodes[i].className = 'panel';
+		}
+
+		// Show selected panel
+		panelElm.className = 'current';
+	}
+};
+
+MCTabs.prototype.getAnchor = function() {
+	var pos, url = document.location.href;
+
+	if ((pos = url.lastIndexOf('#')) != -1)
+		return url.substring(pos + 1);
+
+	return "";
+};
+
+// Global instance
+var mcTabs = new MCTabs();
