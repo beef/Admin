@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{beef-admin_area}
-  s.version = "0.3.3"
+  s.version = "0.3.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Steve England"]
-  s.date = %q{2010-07-02}
+  s.date = %q{2010-07-12}
   s.email = %q{steve@wearebeef.co.uk}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -118,36 +118,98 @@ Gem::Specification.new do |s|
      "generators/admin_area_files/templates/public/images/textile-editor/strikethrough.png",
      "generators/admin_area_files/templates/public/images/textile-editor/underline.png",
      "generators/admin_area_files/templates/public/javascripts/admin/application.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/langs/en.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/inlinepopups/editor_plugin.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/inlinepopups/skins/clearlooks2/img/button.gif",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/inlinepopups/skins/clearlooks2/img/corners.gif",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/inlinepopups/skins/clearlooks2/img/horizontal.gif",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/inlinepopups/skins/clearlooks2/img/vertical.gif",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/inlinepopups/skins/clearlooks2/window.css",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/inlinepopups/template.htm",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/paste/editor_plugin.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/paste/js/pastetext.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/paste/js/pasteword.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/paste/langs/en_dlg.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/paste/pastetext.htm",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/paste/pasteword.htm",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/safari/blank.htm",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/safari/editor_plugin.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/template/blank.htm",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/template/css/template.css",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/template/editor_plugin.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/template/js/template.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/template/langs/en_dlg.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/plugins/template/template.htm",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/anchor.htm",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/color_picker.htm",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/editor_template.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/img/colorpicker.jpg",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/img/icons.gif",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/js/anchor.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/js/color_picker.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/js/link.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/js/source_editor.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/langs/en.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/langs/en_dlg.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/link.htm",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/skins/default/content.css",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/skins/default/dialog.css",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/skins/default/img/buttons.png",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/skins/default/img/items.gif",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/skins/default/img/menu_arrow.gif",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/skins/default/img/menu_check.gif",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/skins/default/img/progress.gif",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/skins/default/img/tabs.gif",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/skins/default/ui.css",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/themes/advanced/source_editor.htm",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/tiny_mce.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/tiny_mce_popup.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/utils/form_utils.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/utils/mctabs.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce.old/utils/validate.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/langs/en.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/inlinepopups/editor_plugin.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/inlinepopups/editor_plugin_src.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/alert.gif",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/button.gif",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/buttons.gif",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/confirm.gif",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/corners.gif",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/horizontal.gif",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/img/vertical.gif",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/inlinepopups/skins/clearlooks2/window.css",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/inlinepopups/template.htm",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/paste/editor_plugin.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/paste/editor_plugin_src.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/paste/js/pastetext.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/paste/js/pasteword.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/paste/langs/en_dlg.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/paste/pastetext.htm",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/paste/pasteword.htm",
-     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/safari/blank.htm",
-     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/safari/editor_plugin.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/template/blank.htm",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/template/css/template.css",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/template/editor_plugin.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/template/editor_plugin_src.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/template/js/template.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/template/langs/en_dlg.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/template/template.htm",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/wordcount/editor_plugin.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/plugins/wordcount/editor_plugin_src.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/about.htm",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/anchor.htm",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/charmap.htm",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/color_picker.htm",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/editor_template.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/editor_template_src.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/image.htm",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/img/colorpicker.jpg",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/img/icons.gif",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/js/about.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/js/anchor.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/js/charmap.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/js/color_picker.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/js/image.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/js/link.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/js/source_editor.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/langs/en.js",
@@ -162,9 +224,18 @@ Gem::Specification.new do |s|
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/default/img/progress.gif",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/default/img/tabs.gif",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/default/ui.css",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/o2k7/content.css",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/o2k7/dialog.css",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/o2k7/img/button_bg.png",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/o2k7/img/button_bg_black.png",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/o2k7/img/button_bg_silver.png",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/o2k7/ui.css",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/o2k7/ui_black.css",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/skins/o2k7/ui_silver.css",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/themes/advanced/source_editor.htm",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/tiny_mce.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/tiny_mce_popup.js",
+     "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/utils/editable_selects.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/utils/form_utils.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/utils/mctabs.js",
      "generators/admin_area_files/templates/public/javascripts/admin/tiny_mce/utils/validate.js",
@@ -198,18 +269,18 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/beef/admin}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{Rails engine that provides a standard admin area with user managament}
   s.test_files = [
-    "test/admin_area_test.rb",
-     "test/test_helper.rb"
+    "test/test_helper.rb",
+     "test/admin_area_test.rb"
   ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<sortable_table>, [">= 0"])
       s.add_runtime_dependency(%q<will_paginate>, [">= 2.3.8"])
     else
