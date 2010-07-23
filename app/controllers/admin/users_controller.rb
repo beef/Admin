@@ -7,17 +7,19 @@ class Admin::UsersController < Admin::BaseController
   def index
     conditions = []
     condition_params = []
-    
-    params[:search].each do |key,value|
-      unless value.blank? || !User.new.respond_to?(key)
-        conditions << "users.#{key.to_s} LIKE ?"
-        condition_params << "%#{value}%"
-      end
-    end
-      
     query_type = ' AND '
-    query_type = ' OR ' if (params[:search][:query_type] || '') == 'any'
-    
+        
+    unless params[:search].nil?
+      params[:search].each do |key,value|
+        unless value.blank? || !User.new.respond_to?(key)
+          conditions << "users.#{key.to_s} LIKE ?"
+          condition_params << "%#{value}%"
+        end
+      end
+        
+      query_type = ' OR ' if (params[:search][:query_type] || '') == 'any'
+    end
+        
     @users = User.paginate :page => params[:page], :per_page => 20, :order => sort_order(:default => 'asc'), :conditions => condition_params.unshift(conditions.join(query_type))
 
     respond_to do |format|

@@ -57,7 +57,7 @@
       <%= f.label :query_type_all, "all" %>
       <%= f.radio_button :query_type, 'all', :checked => ('checked' if (params[:search][:query_type] || 'all') == 'all'), :title => 'Match ALL criteria above.' %> 
       <%= f.label :query_type_any, "any" %>
-      <%= f.radio_button :query_type, 'any', :checked => ('checked' if params[:search][:query_type] == 'any'), :title => 'Match ANY criteria above.' %>
+      <%= f.radio_button :query_type, 'any', :checked => ('checked' if (params[:search][:query_type] || '') == 'any'), :title => 'Match ANY criteria above.' %>
     </p>  
   <% end -%>
 
