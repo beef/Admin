@@ -46,18 +46,18 @@
   <% form_for :search, :html => {:method => :get} do |f| %>
     <p>
       <%= f.label :name %><br/>
-      <%= f.text_field :name, :value => params[:search][:name] %>
+      <%= f.text_field :name, :value => (@criteria[:name] || '') %>
     </p>
     <p>
       <%= f.label :email %><br/>
-      <%= f.text_field :email, :value => params[:search][:email] %>
+      <%= f.text_field :email, :value => (@criteria[:email] || '') %>
     </p>
     <p>
       <%= f.submit "Filter", :disable_with => 'Filtering...' %> 
       <%= f.label :query_type_all, "all" %>
-      <%= f.radio_button :query_type, 'all', :checked => ('checked' if (params[:search][:query_type] || 'all') == 'all'), :title => 'Match ALL criteria above.' %> 
+      <%= f.radio_button :query_type, 'all', :checked => ('checked' if (@criteria[:query_type] || 'all') == 'all'), :title => 'Match ALL criteria above.' %> 
       <%= f.label :query_type_any, "any" %>
-      <%= f.radio_button :query_type, 'any', :checked => ('checked' if (params[:search][:query_type] || '') == 'any'), :title => 'Match ANY criteria above.' %>
+      <%= f.radio_button :query_type, 'any', :checked => ('checked' if (@criteria[:query_type] || '') == 'any'), :title => 'Match ANY criteria above.' %>
     </p>  
   <% end -%>
 

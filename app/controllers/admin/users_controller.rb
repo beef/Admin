@@ -5,20 +5,19 @@ class Admin::UsersController < Admin::BaseController
   # GET /users
   # GET /users.xml
   def index
+    @criteria = (params[:search] || {})
     conditions = []
     condition_params = []
     query_type = ' AND '
         
-    unless params[:search].nil?
-      params[:search].each do |key,value|
-        unless value.blank? || !User.new.respond_to?(key)
-          conditions << "users.#{key.to_s} LIKE ?"
-          condition_params << "%#{value}%"
-        end
+    @criteria.each do |key,value|
+      unless value.blank? || !User.new.respond_to?(key)
+        conditions << "users.#{key.to_s} LIKE ?"
+        condition_params << "%#{value}%"
       end
-        
-      query_type = ' OR ' if (params[:search][:query_type] || '') == 'any'
     end
+      
+    query_type = ' OR ' if (@criteria[:query_type] || '') == 'any'
         
     @users = User.paginate :page => params[:page], :per_page => 20, :order => sort_order(:default => 'asc'), :conditions => condition_params.unshift(conditions.join(query_type))
 
